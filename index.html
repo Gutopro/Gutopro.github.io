@@ -10,14 +10,28 @@
 <meta property="og:title" content="Guto | Full-stack developer and technical writer">
 <meta property="og:description" content="Web apps, dApps and developer documentation. Based in Abuja, Nigeria.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://nickigber.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Guto: I build the product, then write the docs. Full-stack developer and technical writer, Abuja.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Godson_Kpp">
+<meta name="twitter:title" content="Guto | Full-stack developer and technical writer">
+<meta name="twitter:description" content="Web apps, dApps and developer documentation. Based in Abuja, Nigeria.">
+<meta name="twitter:image" content="https://nickigber.com/og.png">
 <meta name="theme-color" content="#f3ecdd">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Ngutor Igber","alternateName":"Guto","url":"https://nickigber.com/","image":"https://nickigber.com/og.png","jobTitle":"Full-stack developer and technical writer","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"knowsAbout":["Web development","Django","NestJS","React","Midnight Network","Compact","Zero-knowledge proofs","Technical writing"],"sameAs":["https://github.com/Gutopro","https://www.linkedin.com/in/ngutor-igber-8129b042a","https://x.com/Godson_Kpp"]}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♞</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#f3ecdd;--paper:#fbf6ea;--ink:#16224d;--night:#101a40;--coral:#f0705c;--sun:#f1ae3a;--mint:#a5d9b4;--lilac:#a99be6;--lime:#d3dc7e;--text:#2b3563;
---display:'Bagel Fat One',system-ui,sans-serif;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+/* darker coral for text on light backgrounds: 4.7:1 on cream (bright coral is 2.5:1, decoration only) */
+--coral-ink:#b83e2b;
+--display:'Bagel Fat One',system-ui,sans-serif;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
 body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;font-size:17px;overflow-x:hidden;max-width:100%}
@@ -29,19 +43,20 @@ section{position:relative;padding:110px 0}
 .kicker{font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
 h2{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.1;margin:10px 0 28px}
 .ul{background:linear-gradient(var(--coral),var(--coral)) 0 100%/100% 3px no-repeat;text-decoration:none;font-weight:700}
-.ul:hover{background-size:100% 100%;color:var(--paper)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ul:hover{background-size:100% 100%;color:var(--ink)}
 .pattern{height:34px;background-color:var(--cream);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='34'%3E%3Cg fill='%2316224d'%3E%3Ccircle cx='14' cy='9' r='5'/%3E%3Ccircle cx='28' cy='3' r='5'/%3E%3Ccircle cx='42' cy='9' r='5'/%3E%3Ccircle cx='28' cy='15' r='5'/%3E%3Cpath d='M0 34a14 14 0 0 1 28 0zM28 34a14 14 0 0 1 28 0z'/%3E%3C/g%3E%3Ccircle cx='28' cy='9' r='3' fill='%23f0705c'/%3E%3C/svg%3E");background-size:56px 34px}
 .pattern.flip{transform:scaleY(-1)}
 
-#pre,#w1,#w2{position:fixed;inset:0;transition:transform 1s cubic-bezier(.76,0,.24,1),border-radius 1s cubic-bezier(.76,0,.24,1)}
-#w1{z-index:98;background:var(--coral);transition-delay:.26s}
-#w2{z-index:99;background:var(--sun);transition-delay:.13s}
+#pre,#w1,#w2{position:fixed;inset:0;transition:transform .7s cubic-bezier(.76,0,.24,1),border-radius .7s cubic-bezier(.76,0,.24,1)}
+#w1{z-index:98;background:var(--coral);transition-delay:.14s}
+#w2{z-index:99;background:var(--sun);transition-delay:.07s}
 #pre{z-index:100;background:var(--night);color:var(--paper);display:grid;grid-template-rows:auto 1fr auto;padding:calc(1.4rem + env(safe-area-inset-top,0px)) clamp(1.2rem,4vw,3rem) calc(1.4rem + env(safe-area-inset-bottom,0px))}
 #pre.out,#w1.out,#w2.out{transform:translateY(-101%);border-radius:0 0 50% 50%/0 0 14vh 14vh}
 .pl-top,.pl-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;font-size:.95rem;color:#aab0d8}
 .pl-top b{color:var(--paper);font-weight:500}
 .wm{align-self:center;justify-self:center;display:flex;overflow:hidden;padding:.04em .06em .16em;font:400 clamp(5.5rem,24vw,17rem)/1 var(--display)}
-.wm span{display:block;transform:translateY(115%);animation:up 1.1s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.11s*var(--i) + .15s)}
+.wm span{display:block;transform:translateY(115%);animation:up .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.05s*var(--i))}
 .wm span:last-child{color:var(--coral)}
 @keyframes up{to{transform:none}}
 .pl-num{font:400 clamp(3.4rem,11vw,7rem)/.9 var(--display);color:var(--sun);font-variant-numeric:tabular-nums}
@@ -60,7 +75,7 @@ nav a.on{background:var(--ink);color:var(--paper)}
 @media(max-width:1400px){nav{left:50%;top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);flex-direction:row;gap:6px;width:max-content;max-width:96vw;overflow-x:auto}nav a{padding:6px 12px 6px 8px;font-size:.78rem;white-space:nowrap}nav i{width:12px;height:12px}}
 
 #hero{padding:70px 0 80px;min-height:100svh;display:flex;align-items:center;text-align:center}
-.hi{font-family:var(--display);color:var(--coral);font-size:clamp(1.4rem,2.6vw,2.1rem);transform:rotate(-2deg);display:inline-block}
+.hi{font-family:var(--display);color:var(--coral-ink);font-size:clamp(1.4rem,2.6vw,2.1rem);transform:rotate(-2deg);display:inline-block}
 h1{font-family:var(--display);font-weight:400;color:var(--ink);font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1;letter-spacing:-.01em;margin:10px 0 18px}
 h1 u{text-decoration:none;background:radial-gradient(ellipse at 50% 100%,var(--coral) 0 4px,transparent 5px) 0 100%/100% 8px no-repeat;padding-bottom:10px}
 .sub{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:clamp(1.4rem,3.2vw,2.4rem);line-height:1.2;max-width:20em;margin:0 auto 18px}
@@ -86,35 +101,30 @@ h1 u{text-decoration:none;background:radial-gradient(ellipse at 50% 100%,var(--c
 
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:-20px;position:relative;z-index:2}
 .stats div{background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:18px;box-shadow:0 4px 0 var(--ink)}
-.stats b{display:block;font:400 2.1rem/1 var(--display);color:var(--coral)}
+.stats b{display:block;font:400 2.1rem/1 var(--display);color:var(--coral-ink)}
 .stats span{font-size:.9rem}
 @media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 #about .wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:60px;align-items:start}
 #about p{margin-bottom:1.1em;font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
 /* drop cap only in the main text column, not the side note */
-#about .wrap>div>p:first-of-type::first-letter{float:left;font-family:var(--display);font-size:4.6rem;line-height:.8;padding:6px 10px 0 0;color:var(--coral)}
+#about .wrap>div>p:first-of-type::first-letter{float:left;font-family:var(--display);font-size:4.6rem;line-height:.8;padding:6px 10px 0 0;color:var(--coral-ink)}
 .note{background:var(--paper);border:2px solid var(--ink);border-radius:26px 30px 24px 30px;padding:26px;box-shadow:6px 7px 0 var(--lilac);transform:rotate(1.5deg)}
-.note h3{font-family:var(--display);font-weight:400;color:var(--coral);font-size:1.5rem;margin-bottom:6px}
+.note h3{font-family:var(--display);font-weight:400;color:var(--coral-ink);font-size:1.5rem;margin-bottom:6px}
 .note p{font-family:var(--sans)!important;font-size:.95rem!important;margin-bottom:10px!important}
 @media(max-width:860px){#about .wrap{grid-template-columns:minmax(0,1fr)}}
 
 #work{background:var(--night);color:var(--paper);overflow:hidden}
 #work h2{color:var(--paper)}#work .kicker{color:var(--lime)}
-.stage{position:relative;height:520px;margin-top:20px}
-.big{position:absolute;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:clamp(4rem,11vw,9rem);color:var(--lime);line-height:1}
-.big.l{left:0}.big.r{right:0}
-.card{position:absolute;left:50%;top:0;width:min(330px,76vw);min-height:410px;background:var(--paper);color:var(--text);border:2px solid var(--ink);border-radius:22px;overflow:hidden;transition:transform .55s cubic-bezier(.3,1.2,.4,1),opacity .4s;transform-origin:50% 130%;box-shadow:0 20px 40px rgba(0,0,0,.35)}
-.card .top{height:120px;display:grid;place-items:center;border-bottom:2px solid var(--ink);font-size:3.4rem}
-.card .bd{padding:18px 20px 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:22px;margin-top:20px}
+.card{display:flex;flex-direction:column;background:var(--paper);color:var(--text);border:2px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:0 6px 0 rgba(0,0,0,.35);transition:transform .2s}
+.card:hover{transform:translateY(-4px) rotate(-.6deg)}
+.card .top{height:110px;display:grid;place-items:center;border-bottom:2px solid var(--ink);font-size:3.2rem;color:var(--ink)}
+.card .bd{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
 .card small{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
 .card h3{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin:4px 0 8px}
-.card p{font-size:.93rem;line-height:1.55;margin-bottom:14px}
-.card a{margin-right:14px;font-size:.92rem}
-.ctrl{display:flex;gap:18px;justify-content:center;align-items:center;margin-top:10px}
-.ctrl button{font:700 1rem var(--sans);padding:11px 26px;border-radius:99px;border:2px solid var(--paper);background:transparent;color:var(--paper);cursor:pointer}
-.ctrl button:hover{background:var(--paper);color:var(--night)}
-@media(max-width:700px){.big{display:none}}
+.card p{font-size:.93rem;line-height:1.55;margin-bottom:14px;flex:1}
+.card .bd>div{display:flex;flex-wrap:wrap;gap:6px 16px}.card a{font-size:.92rem}
 
 .svcs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
 .svc{background:var(--paper);border:2px solid var(--ink);border-radius:24px;padding:28px;box-shadow:6px 7px 0 var(--mint)}
@@ -189,18 +199,19 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
   <a href="#hero" style="--c:var(--ink)"><i></i>Guto</a>
   <a href="#about" style="--c:var(--coral)"><i></i>About</a>
   <a href="#work" style="--c:var(--sun)"><i></i>Work</a>
+  <a href="#services" style="--c:var(--mint)"><i></i>Services</a>
   <a href="#path" style="--c:var(--lime)"><i></i>Path</a>
   <a href="#index" style="--c:var(--lilac)"><i></i>Index</a>
   <a href="#contact" style="--c:var(--coral)"><i></i>Your move</a>
 </nav>
 
 <section id="hero">
-  <svg class="sticker s1" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="10" fill="#fbf6ea" stroke="#16224d" stroke-width="5"/><circle cx="50" cy="50" r="12" fill="#f0705c"/><g fill="#a99be6" stroke="#16224d" stroke-width="3"><ellipse cx="50" cy="26" rx="8" ry="13"/><ellipse cx="50" cy="74" rx="8" ry="13"/><ellipse cx="26" cy="50" rx="13" ry="8"/><ellipse cx="74" cy="50" rx="13" ry="8"/></g></svg>
-  <svg class="sticker s2" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="16" fill="#d3dc7e" stroke="#16224d" stroke-width="5"/><text x="50" y="72" font-size="64" text-anchor="middle" fill="#16224d">♞</text></svg>
-  <svg class="sticker s3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#f1ae3a" stroke="#16224d" stroke-width="5"/><circle cx="50" cy="50" r="30" fill="#f6dc8b"/><path d="M62 24a28 28 0 1 0 0 52 22 22 0 0 1 0-52z" fill="#16224d" opacity=".9"/></svg>
-  <svg class="sticker s4" viewBox="0 0 100 100"><rect x="22" y="44" width="56" height="44" rx="8" fill="#f1ae3a" stroke="#16224d" stroke-width="5"/><path d="M34 44V32a16 16 0 0 1 32 0v12" fill="none" stroke="#16224d" stroke-width="6"/><circle cx="50" cy="64" r="6" fill="#16224d"/></svg>
-  <svg class="sticker s5" viewBox="0 0 100 100"><path d="M50 8l36 14v28c0 22-16 38-36 44C30 88 14 72 14 50V22z" fill="#a5d9b4" stroke="#16224d" stroke-width="5" stroke-linejoin="round"/><path d="M34 52l12 12 22-26" fill="none" stroke="#16224d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <svg class="sticker s6" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="12" fill="#f1ae3a" stroke="#16224d" stroke-width="5" stroke-dasharray="8 6"/><path d="M38 34L22 50l16 16M62 34l16 16-16 16M54 30L46 70" fill="none" stroke="#16224d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg aria-hidden="true" focusable="false" class="sticker s1" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="10" fill="#fbf6ea" stroke="#16224d" stroke-width="5"/><circle cx="50" cy="50" r="12" fill="#f0705c"/><g fill="#a99be6" stroke="#16224d" stroke-width="3"><ellipse cx="50" cy="26" rx="8" ry="13"/><ellipse cx="50" cy="74" rx="8" ry="13"/><ellipse cx="26" cy="50" rx="13" ry="8"/><ellipse cx="74" cy="50" rx="13" ry="8"/></g></svg>
+  <svg aria-hidden="true" focusable="false" class="sticker s2" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="16" fill="#d3dc7e" stroke="#16224d" stroke-width="5"/><text x="50" y="72" font-size="64" text-anchor="middle" fill="#16224d">♞</text></svg>
+  <svg aria-hidden="true" focusable="false" class="sticker s3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#f1ae3a" stroke="#16224d" stroke-width="5"/><circle cx="50" cy="50" r="30" fill="#f6dc8b"/><path d="M62 24a28 28 0 1 0 0 52 22 22 0 0 1 0-52z" fill="#16224d" opacity=".9"/></svg>
+  <svg aria-hidden="true" focusable="false" class="sticker s4" viewBox="0 0 100 100"><rect x="22" y="44" width="56" height="44" rx="8" fill="#f1ae3a" stroke="#16224d" stroke-width="5"/><path d="M34 44V32a16 16 0 0 1 32 0v12" fill="none" stroke="#16224d" stroke-width="6"/><circle cx="50" cy="64" r="6" fill="#16224d"/></svg>
+  <svg aria-hidden="true" focusable="false" class="sticker s5" viewBox="0 0 100 100"><path d="M50 8l36 14v28c0 22-16 38-36 44C30 88 14 72 14 50V22z" fill="#a5d9b4" stroke="#16224d" stroke-width="5" stroke-linejoin="round"/><path d="M34 52l12 12 22-26" fill="none" stroke="#16224d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg aria-hidden="true" focusable="false" class="sticker s6" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="12" fill="#f1ae3a" stroke="#16224d" stroke-width="5" stroke-dasharray="8 6"/><path d="M38 34L22 50l16 16M62 34l16 16-16 16M54 30L46 70" fill="none" stroke="#16224d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <div class="wrap">
     <span class="hi">Hi, I'm Guto</span>
     <h1 class="rv" style="--d:.2s">I build the product, then write the <u>docs</u>.</h1>
@@ -224,10 +235,10 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
 </section>
 
 <div class="wrap stats">
+  <div><b>10</b><span>merged open-source pull requests</span></div>
+  <div><b>9</b><span>repos contributed to, from Midnight to GoodDollar</span></div>
+  <div><b>3</b><span>live sites for businesses and organisations</span></div>
   <div><b>7</b><span>Compact circuits in Nightroom</span></div>
-  <div><b>3</b><span>developer guides: Providers, WSL2, NixOS</span></div>
-  <div><b>2</b><span>PRs sent to the official Midnight docs</span></div>
-  <div><b>230,409</b><span>block of my first contract on preprod</span></div>
 </div>
 
 <section id="about"><div class="wrap">
@@ -251,11 +262,16 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
 <section id="work"><div class="wrap">
   <span class="kicker">Work</span>
   <h2>Things I've shipped</h2>
-  <div class="stage">
-    <div class="big l">Build</div><div class="big r">Write</div>
-    <div id="cards"></div>
+  <div class="grid" id="cards">
+    <article class="card"><div class="top" style="background:#a99be6" aria-hidden="true">♞</div><div class="bd"><small>Web3 dApp</small><h3>Nightroom</h3><p>A privacy-preserving room rental protocol: seven Compact circuits and a dual commitment scheme, merged into the official Midnight awesome-dapps repo.</p><div><a class="ul" href="https://github.com/Gutopro/nightroom" target="_blank" rel="noopener">Repo<span class="sr"> – Nightroom</span></a><a class="ul" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener">Listing PR<span class="sr"> – Nightroom</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#f6dc8b" aria-hidden="true">♕</div><div class="bd"><small>Business website</small><h3>Enny's Glory Events</h3><p>A site for an Abuja wedding planner: service packages with clear pricing, a portfolio, Google reviews and one-tap WhatsApp consultation booking.</p><div><a class="ul" href="https://ennysgloryevents.com/" target="_blank" rel="noopener">Visit site<span class="sr"> – Enny's Glory Events</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#a5d9b4" aria-hidden="true">♙</div><div class="bd"><small>Donation website</small><h3>Bible a Kid</h3><p>A giving site that funds age-matched children's Bibles: one-time or monthly gifts in USD or NGN, Paystack checkout, personalised bookplates and a live yearly goal.</p><div><a class="ul" href="https://bibleakid.com" target="_blank" rel="noopener">Visit site<span class="sr"> – Bible a Kid</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#f6b987" aria-hidden="true">♟</div><div class="bd"><small>Community platform</small><h3>Incredible-X Commandos</h3><p>A members site for an alumni set: Google sign-in, an admin panel, events and RSVPs, a gallery, member directory, job board and dues page, built on Supabase.</p><div><a class="ul" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener">Visit site<span class="sr"> – Incredible-X Commandos</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#f0705c" aria-hidden="true">♛</div><div class="bd"><small>Web3 dApp</small><h3>BrowseMe</h3><p>Matches businesses with investors on Midnight. Lace wallet connection, live ledger state, investor gating and a handshake flow.</p><div><a class="ul" href="https://github.com/Gutopro/BrowseMe" target="_blank" rel="noopener">Repo<span class="sr"> – BrowseMe</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#d3dc7e" aria-hidden="true">♜</div><div class="bd"><small>Technical writing</small><h3>The Providers guide</h3><p>All seven slots of the MidnightProviders interface, explained and revised after expert review.</p><div><a class="ul" href="https://dev.to/midnight-aliit/midnight-providers-what-they-are-where-they-live-and-why-we-use-them-2nli" target="_blank" rel="noopener">Read on DEV<span class="sr"> – The Providers guide</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#a99be6" aria-hidden="true">♝</div><div class="bd"><small>Documentation</small><h3>Midnight docs</h3><p>A NixOS troubleshooting guide for the Compact tools, and a fix moving the Wallet SDK guide off a deprecated npm scope. Both merged.</p><div><a class="ul" href="https://github.com/midnightntwrk/midnight-docs/pull/593" target="_blank" rel="noopener">NixOS guide<span class="sr"> – Midnight docs</span></a><a class="ul" href="https://github.com/midnightntwrk/midnight-docs/pull/1239" target="_blank" rel="noopener">SDK fix<span class="sr"> – Midnight docs</span></a></div></div></article>
+    <article class="card"><div class="top" style="background:#f1ae3a" aria-hidden="true">♚</div><div class="bd"><small>Technical writing</small><h3>WSL2 setup guide</h3><p>Building on Midnight from Windows: a real developer's WSL2 setup, published by the Midnight Aliit Fellowship on DEV.</p><div><a class="ul" href="https://dev.to/midnight-aliit/building-on-midnight-with-windows-a-real-developers-wsl2-setup-guide-om6" target="_blank" rel="noopener">Read on DEV<span class="sr"> – WSL2 setup guide</span></a></div></div></article>
   </div>
-  <div class="ctrl"><button id="prev">Back</button><span id="count"></span><button id="next">Next</button></div>
 </div></section>
 
 <section id="cases"><div class="wrap">
@@ -263,9 +279,9 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
   <h2>Two projects, from goal to build</h2>
   <div class="svcs">
     <div class="svc"><span class="kicker">Community platform</span><h3>Incredible-X Commandos site</h3>
-      <ul><li><b>Goal:</b> one members site for an alumni set, with its own admin.</li><li><b>Built:</b> Google sign-in, an admin panel, events with countdowns.</li><li><b>Stack:</b> Supabase.</li></ul></div>
+      <ul><li><b>Goal:</b> one members site for an alumni set, with its own admin.</li><li><b>Built:</b> Google sign-in, an admin panel, events with RSVPs, a member directory, job board and dues page.</li><li><b>Stack:</b> Supabase.</li><li><b>Live:</b> <a class="ul" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener">incrediblexcommandos2015.com</a></li></ul></div>
     <div class="svc"><span class="kicker">Web3 dApp</span><h3>Nightroom</h3>
-      <ul><li><b>Goal:</b> private room rentals that don't expose renter data.</li><li><b>Built:</b> seven Compact circuits and a dual commitment scheme.</li><li><b>Result:</b> merged into Midnight's official awesome-dapps repo.</li></ul></div>
+      <ul><li><b>Goal:</b> private room rentals that don't expose renter data.</li><li><b>Built:</b> seven Compact circuits and a dual commitment scheme.</li><li><b>Result:</b> <a class="ul" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener">merged into Midnight's official awesome-dapps repo</a>.</li></ul></div>
   </div>
 </div></section>
 
@@ -285,7 +301,7 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
   <h2>How I got here</h2>
   <div class="row"><span class="when">Before</span><div><h3>Web2 engineer <span>Django, NestJS, React</span></h3><p>Production full-stack work that taught me to ship and maintain real systems.</p></div></div>
   <div class="row"><span class="when">First contract</span><div><h3>Hello World on Midnight</h3><p>Deployed to preprod at block 230,409, then started documenting everything that tripped me up.</p></div></div>
-  <div class="row"><span class="when">Docs</span><div><h3>Writing other developers use</h3><p>Published the Providers guide, shipped setup guides for WSL2 and NixOS, and sent pull requests to the official docs.</p></div></div>
+  <div class="row"><span class="when">Docs</span><div><h3>Writing other developers use</h3><p>Published the Providers guide, a WSL2 setup guide and a NixOS guide merged into the official Midnight docs.</p></div></div>
   <div class="row"><span class="when">Shipped</span><div><h3>Nightroom in the official repo</h3><p>Seven Compact circuits, merged into Midnight's awesome-dapps.</p></div></div>
   <div class="row"><span class="when">Now</span><div><h3>Building BrowseMe <span>and taking projects</span></h3><p>Also Welfare Secretary of my alumni association.</p></div></div>
 </div></section>
@@ -293,22 +309,29 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
 <section id="index"><div class="wrap">
   <span class="kicker">Index</span>
   <h2>The full list</h2>
-  <!-- TODO: swap each # or profile link for the real repo, article or PR URL -->
   <div class="cols">
     <div><h3>built</h3>
-      <a class="li" href="https://github.com/Gutopro"><b>Nightroom</b><span>Private room rentals</span></a>
-      <a class="li" href="https://github.com/Gutopro"><b>BrowseMe</b><span>Business and investor matching</span></a>
-      <a class="li" href="https://github.com/Gutopro"><b>Incredible-X Commandos</b><span>Alumni members site</span></a>
+      <a class="li" href="https://ennysgloryevents.com/" target="_blank" rel="noopener"><b>Enny's Glory Events</b><span>Wedding planner site, Abuja</span></a>
+      <a class="li" href="https://bibleakid.com" target="_blank" rel="noopener"><b>Bible a Kid</b><span>Donation site with Paystack</span></a>
+      <a class="li" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener"><b>Incredible-X Commandos</b><span>Alumni members platform</span></a>
+      <a class="li" href="https://github.com/Gutopro/nightroom" target="_blank" rel="noopener"><b>Nightroom</b><span>Private room rentals on Midnight</span></a>
+      <a class="li" href="https://github.com/Gutopro/BrowseMe" target="_blank" rel="noopener"><b>BrowseMe</b><span>Business and investor matching</span></a>
     </div>
     <div><h3>writing</h3>
-      <a class="li" href="https://github.com/Gutopro"><b>The Midnight Providers guide</b><span>Revised after technical review</span></a>
-      <a class="li" href="https://github.com/Gutopro"><b>WSL2 setup guide</b><span>Aliit Fellowship org</span></a>
-      <a class="li" href="https://github.com/Gutopro"><b>NixOS troubleshooting guide</b><span>Midnight docs</span></a>
+      <a class="li" href="https://dev.to/midnight-aliit/midnight-providers-what-they-are-where-they-live-and-why-we-use-them-2nli" target="_blank" rel="noopener"><b>The Midnight Providers guide</b><span>Revised after technical review</span></a>
+      <a class="li" href="https://github.com/midnightntwrk/midnight-docs/pull/593" target="_blank" rel="noopener"><b>NixOS troubleshooting guide</b><span>Midnight docs, PR #593</span></a>
+      <a class="li" href="https://github.com/midnightntwrk/midnight-docs/pull/1239" target="_blank" rel="noopener"><b>Wallet SDK guide fix</b><span>Midnight docs, PR #1239</span></a>
+      <a class="li" href="https://dev.to/midnight-aliit/building-on-midnight-with-windows-a-real-developers-wsl2-setup-guide-om6" target="_blank" rel="noopener"><b>WSL2 setup guide</b><span>Aliit Fellowship on DEV</span></a>
+      <a class="li" href="https://github.com/metal3-io/metal3-docs/pull/351" target="_blank" rel="noopener"><b>Bare metal operator install link</b><span>metal3-docs, PR #351</span></a>
     </div>
     <div><h3>open source</h3>
-      <a class="li" href="https://github.com/Gutopro"><b>midnight-docs</b><span>PRs #593 and #1239</span></a>
-      <a class="li" href="https://github.com/Gutopro"><b>GoodDollar</b><span>GoodProtocolUI</span></a>
-      <a class="li" href="https://github.com/Gutopro"><b>Stellar and Soroban</b><span>Bounty board, Guilds, nextellar</span></a>
+      <a class="li" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener"><b>Nightroom listing</b><span>midnight-awesome-dapps, PR #138</span></a>
+      <a class="li" href="https://github.com/GoodDollar/GoodProtocolUI/pull/631" target="_blank" rel="noopener"><b>GoodBridge page</b><span>GoodDollar GoodProtocolUI, PR #631</span></a>
+      <a class="li" href="https://github.com/DogStark/petChain-Frontend/pull/237" target="_blank" rel="noopener"><b>Docker and Kubernetes setup</b><span>petChain Frontend, PR #237</span></a>
+      <a class="li" href="https://github.com/ritik4ever/stellar-bounty-board/pull/36" target="_blank" rel="noopener"><b>Rate limiting for write endpoints</b><span>Stellar bounty board, PR #36</span></a>
+      <a class="li" href="https://github.com/GalactiGuild/Stellar-Guilds/pull/198" target="_blank" rel="noopener"><b>Responsive top navbar</b><span>Stellar Guilds, PR #198</span></a>
+      <a class="li" href="https://github.com/Jsmithseo/headlessSTLR/pull/3" target="_blank" rel="noopener"><b>NextAuth and Firebase sign-in</b><span>headlessSTLR, PR #3</span></a>
+      <a class="li" href="https://github.com/Pi-Defi-world/acbu-backend/pull/196" target="_blank" rel="noopener"><b>README reference fix</b><span>ACBU backend, PR #196</span></a>
     </div>
   </div>
 </div></section>
@@ -319,12 +342,14 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
     <h2>Your <span class="ring">move</span></h2>
     <p>Tell me what you need and I'll reply by email or WhatsApp. Prefer to talk first? <a class="ul" href="https://wa.me/2347032862433?text=Hi%20Guto%2C%20I%27d%20like%20a%2015-minute%20call." target="_blank" rel="noopener">Book a free 15-minute call</a>.</p>
     <form id="lead">
-      <label>Your name<input id="f-n" autocomplete="name"></label>
-      <label>What do you need?<select id="f-t"><option>A website or web app</option><option>A tool or dashboard for my organisation</option><option>Technical writing or docs</option><option>A Web3 dApp</option><option>Something else</option></select></label>
-      <label>Tell me more<textarea id="f-m" rows="3"></textarea></label>
-      <div class="btns" style="justify-content:flex-start"><button type="button" class="btn main" id="f-e">Send by email</button><button type="button" class="btn" id="f-w">Send on WhatsApp</button></div>
+      <label>Your name<input id="f-n" name="name" autocomplete="name"></label>
+      <label>Email or WhatsApp number, so I can reply<input id="f-c" name="contact" autocomplete="email" required></label>
+      <label>What do you need?<select id="f-t" name="need"><option>A website or web app</option><option>A tool or dashboard for my organisation</option><option>Technical writing or docs</option><option>A Web3 dApp</option><option>Something else</option></select></label>
+      <label>Tell me more<textarea id="f-m" name="message" rows="3"></textarea></label>
+      <div class="btns" style="justify-content:flex-start"><button type="submit" class="btn main" id="f-e">Send message</button><button type="button" class="btn" id="f-w">Send on WhatsApp</button></div>
+      <p id="f-s" role="status" aria-live="polite" style="font-weight:700;color:var(--ink);min-height:1.6em"></p>
     </form>
-    <p class="links">Or find me: <a class="ul" href="mailto:ngutorigber@gmail.com">Email</a> <a class="ul" href="https://www.linkedin.com/in/ngutor-igber-8129b042a" target="_blank" rel="noopener">LinkedIn</a> <a class="ul" href="https://github.com/Gutopro" target="_blank" rel="noopener">GitHub</a> <a class="ul" href="https://x.com/Gutopro11" target="_blank" rel="noopener">X</a></p>
+    <p class="links">Or find me: <a class="ul" href="mailto:ngutorigber@gmail.com">Email</a> <a class="ul" href="https://www.linkedin.com/in/ngutor-igber-8129b042a" target="_blank" rel="noopener">LinkedIn</a> <a class="ul" href="https://github.com/Gutopro" target="_blank" rel="noopener">GitHub</a> <a class="ul" href="https://x.com/Godson_Kpp" target="_blank" rel="noopener">X</a></p>
   </div>
   <div class="board">
     <a class="sq" href="mailto:ngutorigber@gmail.com"><span><span class="pc">♔</span><br>Email</span></a>
@@ -334,7 +359,7 @@ footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
   </div>
 </div></section>
 
-<footer><div class="wrap"><span>&copy; <span id="yr"></span> Guto (Ngutor Igber), Abuja</span><span><b>off the clock:</b> hunting kings on Chess.com.</span></div></footer>
+<footer><div class="wrap"><span>&copy; <span id="yr"></span> Guto (Ngutor Igber), Abuja</span><span><b>Got a project?</b> <a class="ul" href="#contact">Make your move</a> or <a class="ul" href="https://wa.me/2347032862433" target="_blank" rel="noopener">WhatsApp me</a>.</span></div></footer>
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
@@ -346,41 +371,22 @@ if(reduce||seen){L.forEach(function(e){e.style.display='none'});ready()}else{
   var clk=document.getElementById('clk');
   function tickClock(){clk.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Africa/Lagos',hour:'2-digit',minute:'2-digit'})+' WAT'}
   tickClock();setInterval(tickClock,30000);
-  var num=document.getElementById('num'),fill=document.getElementById('fill'),t0=performance.now(),D=1500;
+  var num=document.getElementById('num'),fill=document.getElementById('fill'),t0=performance.now(),D=600;
   function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
-  function out(){L.forEach(function(e){e.classList.add('out')});setTimeout(ready,550);setTimeout(function(){L.forEach(function(e){e.remove()})},1800)}
-  (function tick(t){var p=Math.min(1,(t-t0)/D),e=ease(p);num.textContent=String(Math.round(e*100)).padStart(3,'0');fill.style.transform='scaleX('+e+')';if(p<1){requestAnimationFrame(tick)}else{setTimeout(out,200)}})(t0);
+  function out(){L.forEach(function(e){e.classList.add('out')});setTimeout(ready,350);setTimeout(function(){L.forEach(function(e){e.remove()})},1800)}
+  (function tick(t){var p=Math.min(1,(t-t0)/D),e=ease(p);num.textContent=String(Math.round(e*100)).padStart(3,'0');fill.style.transform='scaleX('+e+')';if(p<1){requestAnimationFrame(tick)}else{setTimeout(out,80)}})(t0);
 }
 
-const projects=[
- {tag:'Web3 dApp',t:'Nightroom',c:'#a99be6',i:'♞',d:'A privacy-preserving room rental protocol: seven Compact circuits and a dual commitment scheme, merged into the official Midnight awesome-dapps repo.',l:[['Repo','https://github.com/Gutopro']]},
- {tag:'Web3 dApp',t:'BrowseMe',c:'#f0705c',i:'♛',d:'Matches businesses with investors on Midnight. Lace wallet connection, live ledger state, investor gating and a handshake flow.',l:[['Repo','https://github.com/Gutopro']]},
- {tag:'Technical writing',t:'The Providers guide',c:'#d3dc7e',i:'♜',d:'All seven slots of the MidnightProviders interface, explained and revised after expert review.',l:[['Read','https://github.com/Gutopro']]},
- {tag:'Documentation',t:'Midnight docs',c:'#a5d9b4',i:'♝',d:'Pull requests to the official docs, including a fix for a wallet SDK package scope deprecation.',l:[['PRs','https://github.com/Gutopro']]},
- {tag:'Technical writing',t:'WSL2 and NixOS guides',c:'#f1ae3a',i:'♚',d:'A WSL2 setup guide published under the Aliit Fellowship org, and a NixOS troubleshooting guide for Midnight developers.',l:[['Read','https://github.com/Gutopro']]},
- {tag:'Business website',t:'Incredible-X Commandos',c:'#f6b987',i:'♟',d:'A members site for an alumni set: Google sign-in, an admin panel, events with countdowns, built on Supabase.',l:[['Repo','https://github.com/Gutopro']]}
-];
-const box=document.getElementById('cards');let cur=0;
-projects.forEach(p=>{const c=document.createElement('article');c.className='card';
- c.innerHTML=`<div class="top" style="background:${p.c}">${p.i}</div><div class="bd"><small>${p.tag}</small><h3>${p.t}</h3><p>${p.d}</p>${p.l.map(x=>`<a class="ul" href="${x[1]}">${x[0]}</a>`).join('')}</div>`;
- box.appendChild(c)});
-const cards=[...box.children],n=cards.length;
-function layout(){cards.forEach((c,i)=>{let o=i-cur;if(o>n/2)o-=n;if(o<-n/2)o+=n;
- c.style.transform=`translateX(calc(-50% + ${o*70}px)) rotate(${o*9}deg) scale(${o?0.94:1})`;
- c.style.zIndex=10-Math.abs(o);c.style.opacity=Math.abs(o)>2?0:1;c.style.pointerEvents=o?'none':'auto'});
- document.getElementById('count').textContent=(cur+1)+' / '+n}
-document.getElementById('next').onclick=()=>{cur=(cur+1)%n;layout()};
-document.getElementById('prev').onclick=()=>{cur=(cur-1+n)%n;layout()};
-layout();
+const cards=[...document.querySelectorAll('#cards .card')];
 
 const links=[...document.querySelectorAll('nav a')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
 
 const AUD={
- biz:{sub:'A fast website your customers can actually use.',lede:'I build websites and web apps for businesses: mobile-first, with WhatsApp booking, payments and an admin you can run yourself.',t:'A website or web app',first:['Incredible-X Commandos','BrowseMe']},
- org:{sub:'Tools and documents your team can actually use.',lede:'I build dashboards, member platforms and data tools, and write the guides and manuals that go with them.',t:'A tool or dashboard for my organisation',first:['Incredible-X Commandos']},
- dev:{sub:'Developer docs and dApps people can actually use.',lede:'I write guides, tutorials and reference for dev-tool and Web3 teams, and build dApps on Midnight.',t:'Technical writing or docs',first:['The Providers guide','Nightroom','Midnight docs']}
+ biz:{sub:'A fast website your customers can actually use.',lede:'I build websites and web apps for businesses: mobile-first, with WhatsApp booking, payments and an admin you can run yourself.',t:'A website or web app',first:["Enny's Glory Events",'Bible a Kid','Incredible-X Commandos']},
+ org:{sub:'Tools and documents your team can actually use.',lede:'I build dashboards, member platforms and data tools, and write the guides and manuals that go with them.',t:'A tool or dashboard for my organisation',first:['Incredible-X Commandos','Bible a Kid']},
+ dev:{sub:'Developer docs and dApps people can actually use.',lede:'I write guides, tutorials and reference for dev-tool and Web3 teams, and build dApps on Midnight.',t:'Technical writing or docs',first:['Midnight docs','The Providers guide','Nightroom']}
 };
 document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{
  const a=AUD[b.dataset.a];
@@ -388,11 +394,24 @@ document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{
  document.getElementById('sub').textContent=a.sub;document.getElementById('lede').textContent=a.lede;
  document.getElementById('f-t').value=a.t;
  const rank=c=>{const i=a.first.indexOf(c.querySelector('h3').textContent);return i<0?99:i};
- cards.sort((x,y)=>rank(x)-rank(y));cur=0;layout();
+ cards.forEach(c=>c.style.order=rank(c));
 });
-function lead(){const n=document.getElementById('f-n').value.trim()||'there',t=document.getElementById('f-t').value,m=document.getElementById('f-m').value.trim();
- return 'Hi Guto, I\'m '+n+'. I need: '+t+'.'+(m?'\n\n'+m:'')}
-document.getElementById('f-e').onclick=()=>{location.href='mailto:ngutorigber@gmail.com?subject='+encodeURIComponent('Project enquiry: '+document.getElementById('f-t').value)+'&body='+encodeURIComponent(lead())};
+// Paste a free Web3Forms access key here (web3forms.com) to deliver the form straight to your inbox.
+// While it is empty, "Send message" falls back to opening the visitor's email app.
+const FORM_KEY='8c13a031-a1f0-4a44-99db-027027d67a83';
+const $=id=>document.getElementById(id);
+function lead(){const n=$('f-n').value.trim()||'there',c=$('f-c').value.trim(),t=$('f-t').value,m=$('f-m').value.trim();
+ return 'Hi Guto, I\'m '+n+'. I need: '+t+'.'+(m?'\n\n'+m:'')+(c?'\n\nReach me at: '+c:'')}
+function mailto(){location.href='mailto:ngutorigber@gmail.com?subject='+encodeURIComponent('Project enquiry: '+$('f-t').value)+'&body='+encodeURIComponent(lead())}
+$('lead').onsubmit=async e=>{e.preventDefault();
+ if(!FORM_KEY){mailto();return}
+ const btn=$('f-e'),st=$('f-s');btn.disabled=true;st.textContent='Sending…';
+ try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+   body:JSON.stringify({access_key:FORM_KEY,subject:'Project enquiry: '+$('f-t').value,from_name:$('f-n').value.trim()||'Website visitor',name:$('f-n').value.trim(),contact:$('f-c').value.trim(),need:$('f-t').value,message:$('f-m').value.trim()})});
+  const j=await r.json();if(!j.success)throw 0;
+  $('lead').reset();st.textContent='Thanks! I\'ll reply within a day.';
+ }catch(_){st.textContent='That didn\'t send. Please try WhatsApp or email below.'}
+ btn.disabled=false};
 document.getElementById('f-w').onclick=()=>{window.open('https://wa.me/2347032862433?text='+encodeURIComponent(lead()),'_blank','noopener')};
 </script>
 </body>
