@@ -19,393 +19,377 @@
 <meta name="twitter:title" content="Guto | Full-stack developer and technical writer">
 <meta name="twitter:description" content="Web apps, dApps and developer documentation. Based in Abuja, Nigeria.">
 <meta name="twitter:image" content="https://nickigber.com/og.png">
-<meta name="theme-color" content="#f3ecdd">
+<meta name="theme-color" content="#f3f4ef">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Ngutor Igber","alternateName":"Guto","url":"https://nickigber.com/","image":"https://nickigber.com/og.png","jobTitle":"Full-stack developer and technical writer","address":{"@type":"PostalAddress","addressLocality":"Abuja","addressCountry":"NG"},"knowsAbout":["Web development","Django","NestJS","React","Midnight Network","Compact","Zero-knowledge proofs","Technical writing"],"sameAs":["https://github.com/Gutopro","https://www.linkedin.com/in/ngutor-igber-8129b042a","https://x.com/Godson_Kpp"]}
 </script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♞</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%231d3a2c%22/><text x=%2250%22 y=%2276%22 font-size=%2272%22 text-anchor=%22middle%22 fill=%22%23ece35c%22>♞</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#f3ecdd;--paper:#fbf6ea;--ink:#16224d;--night:#101a40;--coral:#f0705c;--sun:#f1ae3a;--mint:#a5d9b4;--lilac:#a99be6;--lime:#d3dc7e;--text:#2b3563;
-/* darker coral for text on light backgrounds: 4.7:1 on cream (bright coral is 2.5:1, decoration only) */
---coral-ink:#b83e2b;
---display:'Bagel Fat One',system-ui,sans-serif;--serif:'Fraunces',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
-body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;font-size:17px;overflow-x:hidden;max-width:100%}
-body.loading{overflow:hidden}
+/* Tokens. One family (Archivo); width is the expressive axis. Accent = the yellow a chess board uses to mark the last move. */
+:root{
+  --pine:#1d3a2c; --pine-deep:#152a20; --felt:#2f5d45;
+  --paper:#f3f4ef; --sq-light:#e9ecdf; --sq-dark:#b9c6a8;
+  --ink:#161a17; --muted:#4d5a51; --line:rgba(22,26,23,.14);
+  --hl:#ece35c;
+  --font:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --glyph:'Segoe UI Symbol','DejaVu Sans','Noto Sans Symbols 2','Apple Symbols',serif;
+  --gutter:clamp(20px,4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);font-stretch:100%;overflow-x:hidden}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:8px}
-section{position:relative;padding:110px 0}
-.wrap{width:min(1080px,100% - 48px);margin-inline:auto}
-.kicker{font-weight:700;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
-h2{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.1;margin:10px 0 28px}
-.ul{background:linear-gradient(var(--coral),var(--coral)) 0 100%/100% 3px no-repeat;text-decoration:none;font-weight:700}
+::selection{background:var(--hl);color:var(--ink)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.dark :focus-visible{outline-color:var(--hl)}
+.wrap{width:min(1180px,100% - 2*var(--gutter));margin-inline:auto}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.ul:hover{background-size:100% 100%;color:var(--ink)}
-.pattern{height:34px;background-color:var(--cream);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='34'%3E%3Cg fill='%2316224d'%3E%3Ccircle cx='14' cy='9' r='5'/%3E%3Ccircle cx='28' cy='3' r='5'/%3E%3Ccircle cx='42' cy='9' r='5'/%3E%3Ccircle cx='28' cy='15' r='5'/%3E%3Cpath d='M0 34a14 14 0 0 1 28 0zM28 34a14 14 0 0 1 28 0z'/%3E%3C/g%3E%3Ccircle cx='28' cy='9' r='3' fill='%23f0705c'/%3E%3C/svg%3E");background-size:56px 34px}
-.pattern.flip{transform:scaleY(-1)}
+.tl{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.22em;text-decoration-color:currentColor;font-weight:600}
+.tl:hover{text-decoration-color:var(--hl);text-decoration-thickness:.45em;text-underline-offset:-.25em;text-decoration-skip-ink:none}
+.dark .tl:hover{color:var(--paper)}
 
-#pre,#w1,#w2{position:fixed;inset:0;transition:transform .7s cubic-bezier(.76,0,.24,1),border-radius .7s cubic-bezier(.76,0,.24,1)}
-#w1{z-index:98;background:var(--coral);transition-delay:.14s}
-#w2{z-index:99;background:var(--sun);transition-delay:.07s}
-#pre{z-index:100;background:var(--night);color:var(--paper);display:grid;grid-template-rows:auto 1fr auto;padding:calc(1.4rem + env(safe-area-inset-top,0px)) clamp(1.2rem,4vw,3rem) calc(1.4rem + env(safe-area-inset-bottom,0px))}
-#pre.out,#w1.out,#w2.out{transform:translateY(-101%);border-radius:0 0 50% 50%/0 0 14vh 14vh}
-.pl-top,.pl-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;font-size:.95rem;color:#aab0d8}
-.pl-top b{color:var(--paper);font-weight:500}
-.wm{align-self:center;justify-self:center;display:flex;overflow:hidden;padding:.04em .06em .16em;font:400 clamp(5.5rem,24vw,17rem)/1 var(--display)}
-.wm span{display:block;transform:translateY(115%);animation:up .6s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.05s*var(--i))}
-.wm span:last-child{color:var(--coral)}
-@keyframes up{to{transform:none}}
-.pl-num{font:400 clamp(3.4rem,11vw,7rem)/.9 var(--display);color:var(--sun);font-variant-numeric:tabular-nums}
-.pl-bar{height:3px;background:#27315f;border-radius:3px;overflow:hidden;margin-bottom:1.1rem}
-.pl-bar i{display:block;height:100%;background:var(--coral);transform:scaleX(0);transform-origin:0 50%}
-.pl-bot p{text-align:right;max-width:16rem}
-.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease var(--d,0s),transform 1.1s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
-body:not(.loading) .rv{opacity:1;transform:none}
-.hi{opacity:0;transition:opacity .8s ease .1s}body:not(.loading) .hi{opacity:1}
+/* Header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-stretch:118%;font-size:1.15rem;letter-spacing:-.01em}
+.brand i{font-style:normal;font-family:var(--glyph);display:grid;place-items:center;width:32px;height:32px;border-radius:7px;background:var(--pine);color:var(--hl);font-size:1.15rem;line-height:1}
+.links{display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);list-style:none;font-weight:600;font-size:.95rem}
+.links a{text-decoration:none}
+.links a:not(.btn):hover{text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:2px}
+@media(max-width:760px){.links li:not(:last-child){display:none}}
 
-nav{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:12px}
-nav a{display:flex;align-items:center;gap:10px;padding:8px 18px 8px 10px;border-radius:99px;background:var(--paper);border:2px solid var(--ink);font-weight:700;font-size:.9rem;text-decoration:none;color:var(--ink);box-shadow:0 3px 0 rgba(22,34,77,.15);transition:transform .15s}
-nav a:hover{transform:translateX(4px)}
-nav i{width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);background:var(--c)}
-nav a.on{background:var(--ink);color:var(--paper)}
-@media(max-width:1400px){nav{left:50%;top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);flex-direction:row;gap:6px;width:max-content;max-width:96vw;overflow-x:auto}nav a{padding:6px 12px 6px 8px;font-size:.78rem;white-space:nowrap}nav i{width:12px;height:12px}}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:10px;border:1.5px solid var(--pine);background:var(--pine);color:var(--paper);font:600 1rem/1 var(--font);text-decoration:none;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--felt);border-color:var(--felt)}
+.btn.sm{min-height:40px;padding:0 16px;font-size:.92rem}
+.btn.ghost{background:transparent;color:var(--pine)}
+.btn.ghost:hover{background:var(--pine);color:var(--paper)}
+.btn.hl{background:var(--hl);border-color:var(--hl);color:var(--ink)}
+.btn.hl:hover{background:#f4ec86;border-color:#f4ec86}
+.btn.line{background:transparent;border-color:rgba(243,244,239,.5);color:var(--paper)}
+.btn.line:hover{border-color:var(--paper);background:rgba(243,244,239,.08)}
+.btn:disabled{opacity:.6;cursor:progress}
 
-#hero{padding:70px 0 80px;min-height:100svh;display:flex;align-items:center;text-align:center}
-.hi{font-family:var(--display);color:var(--coral-ink);font-size:clamp(1.4rem,2.6vw,2.1rem);transform:rotate(-2deg);display:inline-block}
-h1{font-family:var(--display);font-weight:400;color:var(--ink);font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:1;letter-spacing:-.01em;margin:10px 0 18px}
-h1 u{text-decoration:none;background:radial-gradient(ellipse at 50% 100%,var(--coral) 0 4px,transparent 5px) 0 100%/100% 8px no-repeat;padding-bottom:10px}
-.sub{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:clamp(1.4rem,3.2vw,2.4rem);line-height:1.2;max-width:20em;margin:0 auto 18px}
-.lede{max-width:34em;margin:0 auto 32px}
-.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{padding:13px 26px;border-radius:99px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;text-decoration:none;box-shadow:0 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
-.btn:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
-.btn.main{background:var(--ink);color:var(--paper);box-shadow:0 4px 0 var(--coral)}
-.sticker{position:absolute;width:96px;display:none;filter:drop-shadow(0 8px 10px rgba(22,34,77,.2));animation:bob 6s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-10px) rotate(var(--r,0deg))}}
-/* Stickers sit only in the side gutters, outside the 1080px text column (edge at 50% - 540px) */
-.s1{left:calc(50% - 680px);top:12%;--r:-8deg;transform:rotate(-8deg)}
-.s2{left:calc(50% - 640px);top:45%;width:72px;--r:10deg;transform:rotate(10deg);animation-delay:-2s}
-.s5{left:calc(50% - 680px);bottom:14%;--r:6deg;transform:rotate(6deg);animation-delay:-4s}
-.s3{right:calc(50% - 680px);top:12%;--r:8deg;transform:rotate(8deg);animation-delay:-3s}
-.s4{right:calc(50% - 650px);top:45%;--r:-6deg;transform:rotate(-6deg);animation-delay:-1s}
-.s6{right:calc(50% - 680px);bottom:14%;--r:-10deg;transform:rotate(-10deg);animation-delay:-5s}
-/* right gutter is wide enough from 1400px; left gutter must also clear the side nav (~200px), so from 1760px */
-@media(min-width:1400px){.s3,.s4,.s6{display:block}}
-@media(min-width:1760px){.s1,.s2,.s5{display:block}}
+/* Hero */
+.hero{padding:clamp(40px,7vw,96px) 0 clamp(56px,8vw,112px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(32px,6vw,88px);align-items:center}
+.hello{font-weight:600;color:var(--muted);font-size:1.05rem;margin-bottom:18px}
+h1{font-weight:800;font-stretch:122%;font-size:clamp(2.5rem,5.6vw,5rem);line-height:.98;letter-spacing:-.028em;max-width:11ch;color:var(--pine)}
+.sub{font-weight:650;font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.35;margin:26px 0 10px;max-width:32ch}
+.lede{color:var(--muted);max-width:52ch}
+.need{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:30px 0 26px}
+.need>span{font-weight:600;font-size:.92rem;color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:#fff8}
+.seg button{font:600 .9rem/1 var(--font);padding:10px 14px;border:0;border-radius:8px;background:transparent;color:var(--ink);cursor:pointer;transition:background .15s,color .15s}
+.seg button:hover{background:var(--sq-light)}
+.seg button[aria-pressed="true"]{background:var(--pine);color:var(--paper)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
 
-#pillars{background:var(--night);color:#e9e6f7;padding:0}
-#pillars .in{padding:110px 0}
-#pillars .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:40px;align-items:center}
-#pillars .kicker{color:var(--lime)}
-#pillars h2{color:var(--paper);font-size:clamp(1.8rem,3.4vw,2.6rem)}
-.amp{font-size:clamp(8rem,15vw,13rem);line-height:.9;background:linear-gradient(135deg,var(--coral),var(--sun) 55%,var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent;transform:rotate(-6deg)}
-@media(max-width:860px){#pillars .wrap{grid-template-columns:minmax(0,1fr)}.amp{font-size:6rem}}
-
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:-20px;position:relative;z-index:2}
-.stats div{background:var(--paper);border:2px solid var(--ink);border-radius:18px;padding:18px;box-shadow:0 4px 0 var(--ink)}
-.stats b{display:block;font:400 2.1rem/1 var(--display);color:var(--coral-ink)}
-.stats span{font-size:.9rem}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-#about .wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:60px;align-items:start}
-#about p{margin-bottom:1.1em;font-family:var(--serif);font-size:1.2rem;color:var(--ink)}
-/* drop cap only in the main text column, not the side note */
-#about .wrap>div>p:first-of-type::first-letter{float:left;font-family:var(--display);font-size:4.6rem;line-height:.8;padding:6px 10px 0 0;color:var(--coral-ink)}
-.note{background:var(--paper);border:2px solid var(--ink);border-radius:26px 30px 24px 30px;padding:26px;box-shadow:6px 7px 0 var(--lilac);transform:rotate(1.5deg)}
-.note h3{font-family:var(--display);font-weight:400;color:var(--coral-ink);font-size:1.5rem;margin-bottom:6px}
-.note p{font-family:var(--sans)!important;font-size:.95rem!important;margin-bottom:10px!important}
-@media(max-width:860px){#about .wrap{grid-template-columns:minmax(0,1fr)}}
-
-#work{background:var(--night);color:var(--paper);overflow:hidden}
-#work h2{color:var(--paper)}#work .kicker{color:var(--lime)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:22px;margin-top:20px}
-.card{display:flex;flex-direction:column;background:var(--paper);color:var(--text);border:2px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:0 6px 0 rgba(0,0,0,.35);transition:transform .2s}
-.card:hover{transform:translateY(-4px) rotate(-.6deg)}
-.card .top{height:110px;display:grid;place-items:center;border-bottom:2px solid var(--ink);font-size:3.2rem;color:var(--ink)}
-.card .bd{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
-.card small{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-.card h3{font-family:var(--serif);font-size:1.4rem;color:var(--ink);margin:4px 0 8px}
-.card p{font-size:.93rem;line-height:1.55;margin-bottom:14px;flex:1}
-.card .bd>div{display:flex;flex-wrap:wrap;gap:6px 16px}.card a{font-size:.92rem}
-
-.svcs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
-.svc{background:var(--paper);border:2px solid var(--ink);border-radius:24px;padding:28px;box-shadow:6px 7px 0 var(--mint)}
-.svc:nth-child(2){box-shadow:6px 7px 0 var(--sun)}
-.svc h3{font-family:var(--serif);font-size:1.6rem;color:var(--ink);margin-bottom:8px}
-.svc ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:6px}
-.svc li{padding-left:1.4rem;position:relative}.svc li::before{content:"♟";position:absolute;left:0;color:var(--coral)}
-@media(max-width:760px){.svcs{grid-template-columns:minmax(0,1fr)}}
-
-.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:24px 0;border-top:2px dashed rgba(22,34,77,.25)}
-.row:last-child{border-bottom:2px dashed rgba(22,34,77,.25)}
-.when{align-self:start;justify-self:start;background:var(--lime);color:var(--ink);font-weight:700;font-size:.9rem;padding:2px 12px;border-radius:8px}
-.row h3{font-family:var(--serif);font-size:1.4rem;color:var(--ink);line-height:1.25}
-.row h3 span{font:500 1rem var(--sans);color:var(--text)}
-@media(max-width:640px){.row{grid-template-columns:minmax(0,1fr);gap:8px}}
-
-#index{background:var(--lime)}
-#index .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:34px}
-#index h3{font-family:var(--display);font-weight:400;color:var(--ink);font-size:2rem;margin-bottom:8px}
-.li{display:block;padding:14px 0;border-top:2px solid rgba(22,34,77,.3);text-decoration:none}
-.li b{font-family:var(--serif);color:var(--ink);font-size:1.05rem;line-height:1.3;display:block}
-.li:hover b{text-decoration:underline wavy var(--coral)}
-.li span{font-size:.85rem}
-
-#contact{background:linear-gradient(160deg,#f6b987,#f8dcc0 80%);padding-bottom:90px}
-#contact .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:50px;align-items:center}
-.ring{display:inline-block;background:var(--ink);color:var(--paper);font-family:var(--display);font-weight:400;padding:0 12px;border-radius:10px;transform:rotate(-3deg)}
-.board{display:grid;grid-template-columns:repeat(2,1fr);width:min(420px,86vw);justify-self:center;border:4px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:8px 9px 0 var(--ink)}
-.sq{aspect-ratio:1;display:grid;place-content:center;text-align:center;text-decoration:none;color:var(--ink);font-weight:700;transition:background .25s}
-.sq:nth-child(1),.sq:nth-child(4){background:var(--paper)}.sq:nth-child(2),.sq:nth-child(3){background:var(--sun)}
-.sq .pc{font-size:clamp(3rem,12vw,4.6rem);line-height:1.1;transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
-.sq:hover,.sq:focus-visible{background:var(--coral)}
-.sq:hover .pc,.sq:focus-visible .pc{transform:translateY(-.6rem) scale(1.12)}
-.links{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 22px}
-@media(max-width:860px){#contact .wrap{grid-template-columns:minmax(0,1fr)}.board{width:min(360px,100%)}}
-footer{background:var(--night);color:#c9cbe6;padding:42px 0 90px;font-size:.95rem}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer b{font-family:var(--display);font-weight:400;color:var(--lime)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-bottom:26px;font-weight:700;font-size:.9rem;color:var(--ink)}
-.chips button{font:700 .9rem var(--sans);padding:8px 16px;border-radius:99px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
-.chips button:hover,.chips button.on{background:var(--ink);color:var(--paper)}
-#lead{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:22px 0 6px;max-width:30rem;width:100%}
-#lead label{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;font-weight:700;font-size:.85rem;color:var(--ink)}
-#lead input,#lead select,#lead textarea{font:400 1rem var(--sans);padding:11px 14px;border:2px solid var(--ink);border-radius:14px;background:var(--paper);color:var(--text);width:100%;min-width:0;max-width:100%}
-#lead .btn{cursor:pointer;font:700 1rem var(--sans)}
-
-/* Mobile and tablet: the section pills sit at the bottom, so leave room under the last item of each section */
-@media(max-width:1400px){
-  section{padding-bottom:130px}
-  #contact{padding-bottom:150px}
-  footer{padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
-  html{scroll-padding-bottom:90px}
+/* The board: the one bold element */
+.board-wrap{justify-self:end;width:min(100%,460px)}
+.board{position:relative;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);aspect-ratio:1;border:10px solid var(--pine);border-radius:8px;
+  background:repeating-conic-gradient(var(--sq-dark) 0 25%,var(--sq-light) 0 50%) 0 0/25% 25%;box-shadow:0 30px 60px -30px rgba(21,42,32,.55)}
+.board>*{grid-column:var(--f);grid-row:calc(9 - var(--r))}
+.pc{display:grid;place-items:center;font-family:var(--glyph);font-size:clamp(1.3rem,3.6vw,2.35rem);line-height:1;color:var(--ink);user-select:none;z-index:1}
+.mark{background:var(--hl);opacity:.85}
+.files{display:grid;grid-template-columns:repeat(8,1fr);padding:8px 10px 0;font-size:.75rem;font-weight:600;color:var(--muted);text-align:center}
+.caption{margin-top:12px;font-size:.88rem;color:var(--muted)}
+.caption b{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .knight{animation:hop .9s cubic-bezier(.5,0,.2,1) .6s both}
+  .mark{animation:mark .35s ease 1.45s both}
+}
+@keyframes hop{0%{transform:translate(100%,200%)}55%{transform:translate(50%,60%) scale(1.25)}100%{transform:none}}
+@keyframes mark{from{opacity:0}to{opacity:.85}}
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .board-wrap{justify-self:start;width:min(100%,360px)}
 }
 
-@media(prefers-reduced-motion:reduce){#pre,#w1,#w2{display:none}*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Proof band */
+.proof{background:var(--pine);color:var(--paper);padding:clamp(40px,6vw,64px) 0}
+.proof p{font-size:clamp(1.25rem,2.4vw,1.85rem);line-height:1.35;font-weight:500;max-width:46ch;letter-spacing:-.005em}
+.proof b{font-weight:800;font-stretch:115%;color:var(--hl)}
+
+/* Sections: heading left, content right */
+.sec{padding:clamp(72px,10vw,128px) 0;border-top:1px solid var(--line)}
+.sec>.wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(28px,5vw,72px)}
+.sec-h{align-self:start;position:sticky;top:100px}
+h2{font-weight:800;font-stretch:115%;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.02;letter-spacing:-.022em;color:var(--pine)}
+.intro{color:var(--muted);margin-top:14px;max-width:34ch}
+h3{font-weight:700;font-stretch:108%;font-size:1.3rem;line-height:1.2;letter-spacing:-.01em}
+@media(max-width:860px){.sec>.wrap{grid-template-columns:minmax(0,1fr)}.sec-h{position:static}}
+
+/* Work list */
+.jobs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:8px 28px;padding:26px 0 26px 18px;border-bottom:1px solid var(--line);
+  background:linear-gradient(var(--hl),var(--hl)) 0 0/0 100% no-repeat;transition:background-size .25s ease}
+.job:hover,.job:focus-within{background-size:5px 100%}
+.kind{font-size:.85rem;font-weight:600;color:var(--muted);padding-top:5px}
+.job h3{font-size:clamp(1.3rem,2vw,1.6rem);font-stretch:112%}
+.job p{color:var(--muted);margin-top:6px;max-width:58ch}
+.go{display:flex;flex-direction:column;align-items:flex-end;gap:6px;padding-top:6px;white-space:nowrap;font-size:.95rem}
+@media(max-width:640px){.job{grid-template-columns:minmax(0,1fr);padding-left:14px}.kind{padding:0}.go{flex-direction:row;flex-wrap:wrap;gap:6px 18px;align-items:center}}
+
+/* Services */
+.svcs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,56px)}
+.svc p{color:var(--muted);margin:8px 0 16px}
+.svc ul{list-style:none;display:grid;gap:10px}
+.svc li{position:relative;padding-left:22px}
+.svc li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;background:var(--sq-dark);box-shadow:inset 0 0 0 1.5px var(--pine)}
+.terms{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-weight:600;font-size:.95rem}
+@media(max-width:700px){.svcs{grid-template-columns:minmax(0,1fr)}}
+
+/* About */
+.prose p{font-size:1.12rem;line-height:1.7;max-width:60ch;margin-bottom:1em}
+.prose p:first-child{font-size:clamp(1.25rem,2vw,1.45rem);line-height:1.5;font-weight:500;color:var(--pine)}
+.asides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.asides h3{font-size:1.05rem;margin-bottom:6px}
+.asides p{color:var(--muted);font-size:.98rem}
+@media(max-width:640px){.asides{grid-template-columns:minmax(0,1fr)}}
+
+/* Path: a real sequence, so it is numbered as moves */
+.moves{list-style:none;border-top:1px solid var(--line)}
+.moves li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.mv{font-weight:800;font-stretch:125%;font-size:1.25rem;color:var(--felt);letter-spacing:-.01em;line-height:1.25}
+.moves h3 small{font-size:.95rem;font-weight:500;font-stretch:100%;color:var(--muted);margin-left:6px}
+.moves p{color:var(--muted);margin-top:4px;max-width:58ch}
+@media(max-width:560px){.moves li{grid-template-columns:72px minmax(0,1fr);gap:12px}.mv{font-size:1.05rem}}
+
+/* Writing and open source */
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,56px)}
+.lists h3{font-size:1.05rem;margin-bottom:10px}
+.lists ul{list-style:none;border-top:1px solid var(--line)}
+.lists a{display:block;padding:13px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.lists a b{display:block;font-weight:650;line-height:1.35}
+.lists a span{font-size:.88rem;color:var(--muted)}
+.lists a:hover b{text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:.4em;text-underline-offset:-.2em;text-decoration-skip-ink:none}
+@media(max-width:700px){.lists{grid-template-columns:minmax(0,1fr)}}
+
+/* Contact */
+.contact{background:var(--pine);color:var(--paper);padding:clamp(80px,11vw,140px) 0}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(36px,6vw,88px);align-items:start}
+.contact h2{color:var(--paper);font-size:clamp(3rem,8vw,6.5rem);font-stretch:125%;line-height:.92;letter-spacing:-.035em}
+.contact .lead-in{margin:22px 0 30px;max-width:46ch;color:#d7ddd3;font-size:1.08rem}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:620px}
+label{display:grid;gap:6px;font-weight:600;font-size:.88rem;color:#d7ddd3}
+label.full{grid-column:1/-1}
+input,select,textarea{font:400 1rem var(--font);width:100%;min-width:0;padding:12px 14px;border:1.5px solid transparent;border-radius:8px;background:var(--paper);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--hl);box-shadow:0 0 0 3px rgba(236,227,92,.35)}
+textarea{resize:vertical;min-height:110px}
+.form-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+#f-s{grid-column:1/-1;min-height:1.6em;font-weight:600;color:var(--hl)}
+@media(max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
+.direct{list-style:none;border-top:1px solid rgba(243,244,239,.2)}
+.direct a{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(243,244,239,.2);text-decoration:none}
+.direct span{font-size:.85rem;color:#aebbaf;font-weight:600}
+.direct b{font-weight:600;overflow-wrap:anywhere}
+.direct a:hover b{color:var(--hl)}
+.call{margin-top:22px;color:#d7ddd3}
+@media(max-width:860px){.contact .wrap{grid-template-columns:minmax(0,1fr)}}
+
+footer{background:var(--pine-deep);color:#aebbaf;padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
 </head>
-<body class="loading">
+<body>
 
-<noscript><style>#pre,#w1,#w2{display:none}body.loading{overflow:auto}.rv,.hi{opacity:1;transform:none}</style></noscript>
-<div id="w1" aria-hidden="true"></div><div id="w2" aria-hidden="true"></div>
-<div id="pre" aria-hidden="true">
-  <div class="pl-top"><span>Portfolio &middot; <b>2026</b></span><span>Abuja <b id="clk"></b></span></div>
-  <div class="wm"><span style="--i:0">G</span><span style="--i:1">u</span><span style="--i:2">t</span><span style="--i:3">o</span><span style="--i:4">.</span></div>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="#top" aria-label="Guto, back to top"><i aria-hidden="true">♞&#xFE0E;</i>Guto</a>
+  <ul class="links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a class="btn sm" href="#contact">Start a project</a></li>
+  </ul>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
   <div>
-    <div class="pl-bar"><i id="fill"></i></div>
-    <div class="pl-bot"><div class="pl-num" id="num">000</div><p>Full-stack developer and technical writer</p></div>
+    <p class="hello">Hi, I'm Guto.</p>
+    <h1>I build the product, then write the docs.</h1>
+    <p class="sub" id="sub">Full-stack developer and technical writer in Abuja.</p>
+    <p class="lede" id="lede">I ship web apps and Midnight dApps for businesses and teams, and I write the developer documentation that gets people using them.</p>
+    <div class="need"><span id="need-l">I need</span>
+      <div class="seg" role="group" aria-labelledby="need-l">
+        <button type="button" data-a="biz" aria-pressed="false">A business website</button>
+        <button type="button" data-a="org" aria-pressed="false">A tool for my organisation</button>
+        <button type="button" data-a="dev" aria-pressed="false">Docs or a dApp</button>
+      </div>
+    </div>
+    <div class="ctas"><a class="btn" href="#contact">Start a project</a><a class="btn ghost" href="#work">See the work</a></div>
   </div>
-</div>
 
-<nav aria-label="Sections">
-  <a href="#hero" style="--c:var(--ink)"><i></i>Guto</a>
-  <a href="#about" style="--c:var(--coral)"><i></i>About</a>
-  <a href="#work" style="--c:var(--sun)"><i></i>Work</a>
-  <a href="#services" style="--c:var(--mint)"><i></i>Services</a>
-  <a href="#path" style="--c:var(--lime)"><i></i>Path</a>
-  <a href="#index" style="--c:var(--lilac)"><i></i>Index</a>
-  <a href="#contact" style="--c:var(--coral)"><i></i>Your move</a>
-</nav>
-
-<section id="hero">
-  <svg aria-hidden="true" focusable="false" class="sticker s1" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="10" fill="#fbf6ea" stroke="#16224d" stroke-width="5"/><circle cx="50" cy="50" r="12" fill="#f0705c"/><g fill="#a99be6" stroke="#16224d" stroke-width="3"><ellipse cx="50" cy="26" rx="8" ry="13"/><ellipse cx="50" cy="74" rx="8" ry="13"/><ellipse cx="26" cy="50" rx="13" ry="8"/><ellipse cx="74" cy="50" rx="13" ry="8"/></g></svg>
-  <svg aria-hidden="true" focusable="false" class="sticker s2" viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="16" fill="#d3dc7e" stroke="#16224d" stroke-width="5"/><text x="50" y="72" font-size="64" text-anchor="middle" fill="#16224d">♞</text></svg>
-  <svg aria-hidden="true" focusable="false" class="sticker s3" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#f1ae3a" stroke="#16224d" stroke-width="5"/><circle cx="50" cy="50" r="30" fill="#f6dc8b"/><path d="M62 24a28 28 0 1 0 0 52 22 22 0 0 1 0-52z" fill="#16224d" opacity=".9"/></svg>
-  <svg aria-hidden="true" focusable="false" class="sticker s4" viewBox="0 0 100 100"><rect x="22" y="44" width="56" height="44" rx="8" fill="#f1ae3a" stroke="#16224d" stroke-width="5"/><path d="M34 44V32a16 16 0 0 1 32 0v12" fill="none" stroke="#16224d" stroke-width="6"/><circle cx="50" cy="64" r="6" fill="#16224d"/></svg>
-  <svg aria-hidden="true" focusable="false" class="sticker s5" viewBox="0 0 100 100"><path d="M50 8l36 14v28c0 22-16 38-36 44C30 88 14 72 14 50V22z" fill="#a5d9b4" stroke="#16224d" stroke-width="5" stroke-linejoin="round"/><path d="M34 52l12 12 22-26" fill="none" stroke="#16224d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <svg aria-hidden="true" focusable="false" class="sticker s6" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="12" fill="#f1ae3a" stroke="#16224d" stroke-width="5" stroke-dasharray="8 6"/><path d="M38 34L22 50l16 16M62 34l16 16-16 16M54 30L46 70" fill="none" stroke="#16224d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <div class="wrap">
-    <span class="hi">Hi, I'm Guto</span>
-    <h1 class="rv" style="--d:.2s">I build the product, then write the <u>docs</u>.</h1>
-    <p class="sub rv" id="sub" style="--d:.35s">Full-stack developer and technical writer in Abuja.</p>
-    <p class="lede rv" id="lede" style="--d:.45s">I ship web apps and Midnight dApps for businesses and teams, and I write the developer documentation that gets people using them.</p>
-    <div class="chips rv" style="--d:.5s" role="group" aria-label="What do you need?"><span>I need:</span><button data-a="biz">A business website</button><button data-a="org">A tool for my organisation</button><button data-a="dev">Docs or a dApp</button></div>
-    <div class="btns rv" style="--d:.55s"><a class="btn main" id="cta" href="#contact">Start a project</a><a class="btn" href="#work">See the work</a></div>
-    
-  </div>
-</section>
-<div class="pattern flip"></div>
-
-<section id="pillars"><div class="pattern"></div>
-  <div class="in"><div class="wrap">
-    <div><span class="kicker">Build</span><h2>From database to browser, shipped</h2>
-      <p>Django, NestJS and React in production, plus Compact contracts and ZK circuits on Midnight. Schema, API, interface, deploy: I own features end to end.</p></div>
-    <div class="amp" aria-hidden="true">♞</div>
-    <div><span class="kicker">Write</span><h2>Docs developers actually use</h2>
-      <p>Guides and tutorials written from hands-on building, including a full guide to the MidnightProviders interface.</p></div>
-  </div></div>
-</section>
-
-<div class="wrap stats">
-  <div><b>10</b><span>merged open-source pull requests</span></div>
-  <div><b>9</b><span>repos contributed to, from Midnight to GoodDollar</span></div>
-  <div><b>3</b><span>live sites for businesses and organisations</span></div>
-  <div><b>7</b><span>Compact circuits in Nightroom</span></div>
-</div>
-
-<section id="about"><div class="wrap">
-  <div>
-    <span class="kicker">About</span>
-    <h2>The short version</h2>
-    <p>I started in regular full-stack work, and kept getting pulled toward one question: how much does an app really need to know about its users?</p>
-    <p>Zero-knowledge proofs answer it elegantly, so I moved much of my work to the Midnight Network, where I build dApps, circuits and the tooling around them.</p>
-    <p>I like problems that are slow, boring and in everyone's way. A gap in the docs is one of them, so I write the guide, or send the pull request.</p>
-    <p>I also serve as welfare secretary of my alumni association, which keeps me honest about building things people actually use.</p>
-  </div>
-  <aside class="note">
-    <h3>who I build for</h3>
-    <p>Businesses and NGOs in Abuja that need a real site or tool, and dev-tool and Web3 teams that need clear docs.</p>
-    <p><a class="ul" href="https://github.com/Gutopro">Follow on GitHub</a></p>
-    <h3>and my other life</h3>
-    <p>Chess on Chess.com as GutoSensie, king-hunting style. Football Manager saves. Strong opinions about both.</p>
-  </aside>
+  <figure class="board-wrap" aria-hidden="true">
+    <div class="board">
+      <i class="mark" style="--f:7;--r:1"></i><i class="mark" style="--f:6;--r:3"></i>
+      <span class="pc" style="--f:1;--r:8">♜&#xFE0E;</span><span class="pc" style="--f:2;--r:8">♞&#xFE0E;</span><span class="pc" style="--f:3;--r:8">♝&#xFE0E;</span><span class="pc" style="--f:4;--r:8">♛&#xFE0E;</span><span class="pc" style="--f:5;--r:8">♚&#xFE0E;</span><span class="pc" style="--f:6;--r:8">♝&#xFE0E;</span><span class="pc" style="--f:7;--r:8">♞&#xFE0E;</span><span class="pc" style="--f:8;--r:8">♜&#xFE0E;</span>
+      <span class="pc" style="--f:1;--r:7">♟&#xFE0E;</span><span class="pc" style="--f:2;--r:7">♟&#xFE0E;</span><span class="pc" style="--f:3;--r:7">♟&#xFE0E;</span><span class="pc" style="--f:4;--r:7">♟&#xFE0E;</span><span class="pc" style="--f:6;--r:7">♟&#xFE0E;</span><span class="pc" style="--f:7;--r:7">♟&#xFE0E;</span><span class="pc" style="--f:8;--r:7">♟&#xFE0E;</span>
+      <span class="pc" style="--f:5;--r:5">♟&#xFE0E;</span><span class="pc" style="--f:5;--r:4">♙&#xFE0E;</span>
+      <span class="pc knight" style="--f:6;--r:3">♘&#xFE0E;</span>
+      <span class="pc" style="--f:1;--r:2">♙&#xFE0E;</span><span class="pc" style="--f:2;--r:2">♙&#xFE0E;</span><span class="pc" style="--f:3;--r:2">♙&#xFE0E;</span><span class="pc" style="--f:4;--r:2">♙&#xFE0E;</span><span class="pc" style="--f:6;--r:2">♙&#xFE0E;</span><span class="pc" style="--f:7;--r:2">♙&#xFE0E;</span><span class="pc" style="--f:8;--r:2">♙&#xFE0E;</span>
+      <span class="pc" style="--f:1;--r:1">♖&#xFE0E;</span><span class="pc" style="--f:2;--r:1">♘&#xFE0E;</span><span class="pc" style="--f:3;--r:1">♗&#xFE0E;</span><span class="pc" style="--f:4;--r:1">♕&#xFE0E;</span><span class="pc" style="--f:5;--r:1">♔&#xFE0E;</span><span class="pc" style="--f:6;--r:1">♗&#xFE0E;</span><span class="pc" style="--f:8;--r:1">♖&#xFE0E;</span>
+    </div>
+    <div class="files"><span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span></div>
+    <figcaption class="caption"><b>2. Nf3.</b> Develop first, then attack. It's how I build too.</figcaption>
+  </figure>
 </div></section>
 
-<section id="work"><div class="wrap">
-  <span class="kicker">Work</span>
-  <h2>Things I've shipped</h2>
-  <div class="grid" id="cards">
-    <article class="card"><div class="top" style="background:#a99be6" aria-hidden="true">♞</div><div class="bd"><small>Web3 dApp</small><h3>Nightroom</h3><p>A privacy-preserving room rental protocol: seven Compact circuits and a dual commitment scheme, merged into the official Midnight awesome-dapps repo.</p><div><a class="ul" href="https://github.com/Gutopro/nightroom" target="_blank" rel="noopener">Repo<span class="sr"> – Nightroom</span></a><a class="ul" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener">Listing PR<span class="sr"> – Nightroom</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#f6dc8b" aria-hidden="true">♕</div><div class="bd"><small>Business website</small><h3>Enny's Glory Events</h3><p>A site for an Abuja wedding planner: service packages with clear pricing, a portfolio, Google reviews and one-tap WhatsApp consultation booking.</p><div><a class="ul" href="https://ennysgloryevents.com/" target="_blank" rel="noopener">Visit site<span class="sr"> – Enny's Glory Events</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#a5d9b4" aria-hidden="true">♙</div><div class="bd"><small>Donation website</small><h3>Bible a Kid</h3><p>A giving site that funds age-matched children's Bibles: one-time or monthly gifts in USD or NGN, Paystack checkout, personalised bookplates and a live yearly goal.</p><div><a class="ul" href="https://bibleakid.com" target="_blank" rel="noopener">Visit site<span class="sr"> – Bible a Kid</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#f6b987" aria-hidden="true">♟</div><div class="bd"><small>Community platform</small><h3>Incredible-X Commandos</h3><p>A members site for an alumni set: Google sign-in, an admin panel, events and RSVPs, a gallery, member directory, job board and dues page, built on Supabase.</p><div><a class="ul" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener">Visit site<span class="sr"> – Incredible-X Commandos</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#f0705c" aria-hidden="true">♛</div><div class="bd"><small>Web3 dApp</small><h3>BrowseMe</h3><p>Matches businesses with investors on Midnight. Lace wallet connection, live ledger state, investor gating and a handshake flow.</p><div><a class="ul" href="https://github.com/Gutopro/BrowseMe" target="_blank" rel="noopener">Repo<span class="sr"> – BrowseMe</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#d3dc7e" aria-hidden="true">♜</div><div class="bd"><small>Technical writing</small><h3>The Providers guide</h3><p>All seven slots of the MidnightProviders interface, explained and revised after expert review.</p><div><a class="ul" href="https://dev.to/midnight-aliit/midnight-providers-what-they-are-where-they-live-and-why-we-use-them-2nli" target="_blank" rel="noopener">Read on DEV<span class="sr"> – The Providers guide</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#a99be6" aria-hidden="true">♝</div><div class="bd"><small>Documentation</small><h3>Midnight docs</h3><p>A NixOS troubleshooting guide for the Compact tools, and a fix moving the Wallet SDK guide off a deprecated npm scope. Both merged.</p><div><a class="ul" href="https://github.com/midnightntwrk/midnight-docs/pull/593" target="_blank" rel="noopener">NixOS guide<span class="sr"> – Midnight docs</span></a><a class="ul" href="https://github.com/midnightntwrk/midnight-docs/pull/1239" target="_blank" rel="noopener">SDK fix<span class="sr"> – Midnight docs</span></a></div></div></article>
-    <article class="card"><div class="top" style="background:#f1ae3a" aria-hidden="true">♚</div><div class="bd"><small>Technical writing</small><h3>WSL2 setup guide</h3><p>Building on Midnight from Windows: a real developer's WSL2 setup, published by the Midnight Aliit Fellowship on DEV.</p><div><a class="ul" href="https://dev.to/midnight-aliit/building-on-midnight-with-windows-a-real-developers-wsl2-setup-guide-om6" target="_blank" rel="noopener">Read on DEV<span class="sr"> – WSL2 setup guide</span></a></div></div></article>
+<section class="proof dark" aria-label="Track record"><div class="wrap">
+  <p>So far: <b>10</b> merged pull requests across <b>9</b> open-source repos, <b>3</b> live sites for businesses and organisations, and a <b>7</b>-circuit dApp listed in Midnight's official showcase.</p>
+</div></section>
+
+<section class="sec" id="work"><div class="wrap">
+  <div class="sec-h"><h2>Things I've shipped</h2><p class="intro">Client sites first, then the Web3 and documentation work behind them.</p></div>
+  <div class="jobs" id="jobs">
+    <article class="job" data-name="Enny's Glory Events"><span class="kind">Business website</span>
+      <div><h3>Enny's Glory Events</h3><p>A site for an Abuja wedding planner: service packages with clear pricing, a portfolio, Google reviews and one-tap WhatsApp consultation booking.</p></div>
+      <div class="go"><a class="tl" href="https://ennysgloryevents.com/" target="_blank" rel="noopener">Visit site<span class="sr">: Enny's Glory Events</span></a></div></article>
+    <article class="job" data-name="Bible a Kid"><span class="kind">Donation website</span>
+      <div><h3>Bible a Kid</h3><p>A giving site that funds age-matched children's Bibles: one-time or monthly gifts in USD or NGN, Paystack checkout, personalised bookplates and a live yearly goal.</p></div>
+      <div class="go"><a class="tl" href="https://bibleakid.com" target="_blank" rel="noopener">Visit site<span class="sr">: Bible a Kid</span></a></div></article>
+    <article class="job" data-name="Incredible-X Commandos"><span class="kind">Community platform</span>
+      <div><h3>Incredible-X Commandos</h3><p>A members site for an alumni set: Google sign-in, an admin panel, events and RSVPs, a gallery, member directory, job board and dues page, built on Supabase.</p></div>
+      <div class="go"><a class="tl" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener">Visit site<span class="sr">: Incredible-X Commandos</span></a></div></article>
+    <article class="job" data-name="Nightroom"><span class="kind">Web3 dApp</span>
+      <div><h3>Nightroom</h3><p>Private room rentals that don't expose renter data: seven Compact circuits and a dual commitment scheme, merged into Midnight's official awesome-dapps list.</p></div>
+      <div class="go"><a class="tl" href="https://github.com/Gutopro/nightroom" target="_blank" rel="noopener">Repo<span class="sr">: Nightroom</span></a><a class="tl" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener">Listing<span class="sr">: Nightroom in awesome-dapps</span></a></div></article>
+    <article class="job" data-name="BrowseMe"><span class="kind">Web3 dApp</span>
+      <div><h3>BrowseMe</h3><p>Matches businesses with investors on Midnight. Lace wallet connection, live ledger state, investor gating and a handshake flow.</p></div>
+      <div class="go"><a class="tl" href="https://github.com/Gutopro/BrowseMe" target="_blank" rel="noopener">Repo<span class="sr">: BrowseMe</span></a></div></article>
+    <article class="job" data-name="The Providers guide"><span class="kind">Technical writing</span>
+      <div><h3>The Providers guide</h3><p>All seven slots of the MidnightProviders interface, explained and revised after expert review.</p></div>
+      <div class="go"><a class="tl" href="https://dev.to/midnight-aliit/midnight-providers-what-they-are-where-they-live-and-why-we-use-them-2nli" target="_blank" rel="noopener">Read on DEV<span class="sr">: The Providers guide</span></a></div></article>
+    <article class="job" data-name="Midnight docs"><span class="kind">Documentation</span>
+      <div><h3>Midnight docs</h3><p>A NixOS troubleshooting guide for the Compact tools, and a fix moving the Wallet SDK guide off a deprecated npm scope. Both merged.</p></div>
+      <div class="go"><a class="tl" href="https://github.com/midnightntwrk/midnight-docs/pull/593" target="_blank" rel="noopener">NixOS guide<span class="sr">: Midnight docs PR 593</span></a><a class="tl" href="https://github.com/midnightntwrk/midnight-docs/pull/1239" target="_blank" rel="noopener">SDK fix<span class="sr">: Midnight docs PR 1239</span></a></div></article>
+    <article class="job" data-name="WSL2 setup guide"><span class="kind">Technical writing</span>
+      <div><h3>WSL2 setup guide</h3><p>Building on Midnight from Windows: a real developer's WSL2 setup, published by the Midnight Aliit Fellowship on DEV.</p></div>
+      <div class="go"><a class="tl" href="https://dev.to/midnight-aliit/building-on-midnight-with-windows-a-real-developers-wsl2-setup-guide-om6" target="_blank" rel="noopener">Read on DEV<span class="sr">: WSL2 setup guide</span></a></div></article>
   </div>
 </div></section>
 
-<section id="cases"><div class="wrap">
-  <span class="kicker">In detail</span>
-  <h2>Two projects, from goal to build</h2>
-  <div class="svcs">
-    <div class="svc"><span class="kicker">Community platform</span><h3>Incredible-X Commandos site</h3>
-      <ul><li><b>Goal:</b> one members site for an alumni set, with its own admin.</li><li><b>Built:</b> Google sign-in, an admin panel, events with RSVPs, a member directory, job board and dues page.</li><li><b>Stack:</b> Supabase.</li><li><b>Live:</b> <a class="ul" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener">incrediblexcommandos2015.com</a></li></ul></div>
-    <div class="svc"><span class="kicker">Web3 dApp</span><h3>Nightroom</h3>
-      <ul><li><b>Goal:</b> private room rentals that don't expose renter data.</li><li><b>Built:</b> seven Compact circuits and a dual commitment scheme.</li><li><b>Result:</b> <a class="ul" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener">merged into Midnight's official awesome-dapps repo</a>.</li></ul></div>
-  </div>
-</div></section>
-
-<section id="services"><div class="wrap">
-  <span class="kicker">Services</span>
-  <h2>Two ways I can help</h2>
+<section class="sec" id="services"><div class="wrap">
+  <div class="sec-h"><h2>Two ways I can help</h2><p class="intro">Fixed scope, clear price, and you own everything at the end.</p></div>
   <div class="svcs">
     <div class="svc"><h3>Websites and web apps</h3><p>For businesses and organisations that need more than a template.</p>
-      <ul><li>Fast, mobile-first sites with WhatsApp booking and ordering</li><li>Dashboards, member areas and admin panels</li><li>Paystack and Flutterwave payments</li><li>Fixed prices, 50% upfront</li></ul></div>
+      <ul><li>Fast, mobile-first sites with WhatsApp booking and ordering</li><li>Dashboards, member areas and admin panels</li><li>Paystack and Flutterwave payments</li></ul>
+      <p class="terms">Fixed prices, 50% upfront.</p></div>
     <div class="svc"><h3>Technical writing</h3><p>For dev-tool and Web3 teams whose docs cost them adopters.</p>
-      <ul><li>Quickstarts and tutorials tested against real code</li><li>API and SDK reference</li><li>Documentation audits with a prioritised fix list</li><li>Per-doc pricing or monthly retainer</li></ul></div>
+      <ul><li>Quickstarts and tutorials tested against real code</li><li>API and SDK reference</li><li>Documentation audits with a prioritised fix list</li></ul>
+      <p class="terms">Per-doc pricing or a monthly retainer.</p></div>
   </div>
 </div></section>
 
-<section id="path"><div class="wrap">
-  <span class="kicker">Path</span>
-  <h2>How I got here</h2>
-  <div class="row"><span class="when">Before</span><div><h3>Web2 engineer <span>Django, NestJS, React</span></h3><p>Production full-stack work that taught me to ship and maintain real systems.</p></div></div>
-  <div class="row"><span class="when">First contract</span><div><h3>Hello World on Midnight</h3><p>Deployed to preprod at block 230,409, then started documenting everything that tripped me up.</p></div></div>
-  <div class="row"><span class="when">Docs</span><div><h3>Writing other developers use</h3><p>Published the Providers guide, a WSL2 setup guide and a NixOS guide merged into the official Midnight docs.</p></div></div>
-  <div class="row"><span class="when">Shipped</span><div><h3>Nightroom in the official repo</h3><p>Seven Compact circuits, merged into Midnight's awesome-dapps.</p></div></div>
-  <div class="row"><span class="when">Now</span><div><h3>Building BrowseMe <span>and taking projects</span></h3><p>Also Welfare Secretary of my alumni association.</p></div></div>
-</div></section>
-
-<section id="index"><div class="wrap">
-  <span class="kicker">Index</span>
-  <h2>The full list</h2>
-  <div class="cols">
-    <div><h3>built</h3>
-      <a class="li" href="https://ennysgloryevents.com/" target="_blank" rel="noopener"><b>Enny's Glory Events</b><span>Wedding planner site, Abuja</span></a>
-      <a class="li" href="https://bibleakid.com" target="_blank" rel="noopener"><b>Bible a Kid</b><span>Donation site with Paystack</span></a>
-      <a class="li" href="https://incrediblexcommandos2015.com/" target="_blank" rel="noopener"><b>Incredible-X Commandos</b><span>Alumni members platform</span></a>
-      <a class="li" href="https://github.com/Gutopro/nightroom" target="_blank" rel="noopener"><b>Nightroom</b><span>Private room rentals on Midnight</span></a>
-      <a class="li" href="https://github.com/Gutopro/BrowseMe" target="_blank" rel="noopener"><b>BrowseMe</b><span>Business and investor matching</span></a>
-    </div>
-    <div><h3>writing</h3>
-      <a class="li" href="https://dev.to/midnight-aliit/midnight-providers-what-they-are-where-they-live-and-why-we-use-them-2nli" target="_blank" rel="noopener"><b>The Midnight Providers guide</b><span>Revised after technical review</span></a>
-      <a class="li" href="https://github.com/midnightntwrk/midnight-docs/pull/593" target="_blank" rel="noopener"><b>NixOS troubleshooting guide</b><span>Midnight docs, PR #593</span></a>
-      <a class="li" href="https://github.com/midnightntwrk/midnight-docs/pull/1239" target="_blank" rel="noopener"><b>Wallet SDK guide fix</b><span>Midnight docs, PR #1239</span></a>
-      <a class="li" href="https://dev.to/midnight-aliit/building-on-midnight-with-windows-a-real-developers-wsl2-setup-guide-om6" target="_blank" rel="noopener"><b>WSL2 setup guide</b><span>Aliit Fellowship on DEV</span></a>
-      <a class="li" href="https://github.com/metal3-io/metal3-docs/pull/351" target="_blank" rel="noopener"><b>Bare metal operator install link</b><span>metal3-docs, PR #351</span></a>
-    </div>
-    <div><h3>open source</h3>
-      <a class="li" href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener"><b>Nightroom listing</b><span>midnight-awesome-dapps, PR #138</span></a>
-      <a class="li" href="https://github.com/GoodDollar/GoodProtocolUI/pull/631" target="_blank" rel="noopener"><b>GoodBridge page</b><span>GoodDollar GoodProtocolUI, PR #631</span></a>
-      <a class="li" href="https://github.com/DogStark/petChain-Frontend/pull/237" target="_blank" rel="noopener"><b>Docker and Kubernetes setup</b><span>petChain Frontend, PR #237</span></a>
-      <a class="li" href="https://github.com/ritik4ever/stellar-bounty-board/pull/36" target="_blank" rel="noopener"><b>Rate limiting for write endpoints</b><span>Stellar bounty board, PR #36</span></a>
-      <a class="li" href="https://github.com/GalactiGuild/Stellar-Guilds/pull/198" target="_blank" rel="noopener"><b>Responsive top navbar</b><span>Stellar Guilds, PR #198</span></a>
-      <a class="li" href="https://github.com/Jsmithseo/headlessSTLR/pull/3" target="_blank" rel="noopener"><b>NextAuth and Firebase sign-in</b><span>headlessSTLR, PR #3</span></a>
-      <a class="li" href="https://github.com/Pi-Defi-world/acbu-backend/pull/196" target="_blank" rel="noopener"><b>README reference fix</b><span>ACBU backend, PR #196</span></a>
-    </div>
-  </div>
-</div></section>
-
-<section id="contact"><div class="wrap">
+<section class="sec" id="about"><div class="wrap">
+  <div class="sec-h"><h2>The short version</h2></div>
   <div>
-    <span class="kicker">Contact</span>
-    <h2>Your <span class="ring">move</span></h2>
-    <p>Tell me what you need and I'll reply by email or WhatsApp. Prefer to talk first? <a class="ul" href="https://wa.me/2347032862433?text=Hi%20Guto%2C%20I%27d%20like%20a%2015-minute%20call." target="_blank" rel="noopener">Book a free 15-minute call</a>.</p>
+    <div class="prose">
+      <p>I started in regular full-stack work, and kept getting pulled toward one question: how much does an app really need to know about its users?</p>
+      <p>Zero-knowledge proofs answer it elegantly, so I moved much of my work to the Midnight Network, where I build dApps, circuits and the tooling around them.</p>
+      <p>I like problems that are slow, boring and in everyone's way. A gap in the docs is one of them, so I write the guide, or send the pull request.</p>
+      <p>I also serve as welfare secretary of my alumni association, which keeps me honest about building things people actually use.</p>
+    </div>
+    <div class="asides">
+      <div><h3>Who I build for</h3><p>Businesses and NGOs in Abuja that need a real site or tool, and dev-tool and Web3 teams that need clear docs.</p></div>
+      <div><h3>Off the clock</h3><p>Chess on Chess.com as GutoSensie, king-hunting style. Football Manager saves. Strong opinions about both.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="path"><div class="wrap">
+  <div class="sec-h"><h2>How I got here</h2><p class="intro">Five moves so far.</p></div>
+  <ol class="moves">
+    <li><span class="mv">1. e4</span><div><h3>Web2 engineer <small>Django, NestJS, React</small></h3><p>Production full-stack work that taught me to ship and maintain real systems.</p></div></li>
+    <li><span class="mv">2. Nf3</span><div><h3>Hello World on Midnight</h3><p>Deployed to preprod at block 230,409, then started documenting everything that tripped me up.</p></div></li>
+    <li><span class="mv">3. Bc4</span><div><h3>Writing other developers use</h3><p>Published the Providers guide, a WSL2 setup guide and a NixOS guide merged into the official Midnight docs.</p></div></li>
+    <li><span class="mv">4. O-O</span><div><h3>Nightroom in the official list</h3><p>Seven Compact circuits, merged into Midnight's awesome-dapps.</p></div></li>
+    <li><span class="mv">5. ?</span><div><h3>Building BrowseMe <small>and taking projects</small></h3><p>Also welfare secretary of my alumni association.</p></div></li>
+  </ol>
+</div></section>
+
+<section class="sec" id="writing"><div class="wrap">
+  <div class="sec-h"><h2>Writing and open source</h2><p class="intro">Every link goes to the published piece or the merged pull request.</p></div>
+  <div class="lists">
+    <div><h3>Writing</h3><ul>
+      <li><a href="https://dev.to/midnight-aliit/midnight-providers-what-they-are-where-they-live-and-why-we-use-them-2nli" target="_blank" rel="noopener"><b>The Midnight Providers guide</b><span>DEV, revised after technical review</span></a></li>
+      <li><a href="https://dev.to/midnight-aliit/building-on-midnight-with-windows-a-real-developers-wsl2-setup-guide-om6" target="_blank" rel="noopener"><b>WSL2 setup guide</b><span>Aliit Fellowship on DEV</span></a></li>
+      <li><a href="https://github.com/midnightntwrk/midnight-docs/pull/593" target="_blank" rel="noopener"><b>NixOS troubleshooting guide</b><span>Midnight docs, PR #593</span></a></li>
+      <li><a href="https://github.com/midnightntwrk/midnight-docs/pull/1239" target="_blank" rel="noopener"><b>Wallet SDK guide fix</b><span>Midnight docs, PR #1239</span></a></li>
+      <li><a href="https://github.com/metal3-io/metal3-docs/pull/351" target="_blank" rel="noopener"><b>Bare metal operator install link</b><span>metal3-docs, PR #351</span></a></li>
+    </ul></div>
+    <div><h3>Open source</h3><ul>
+      <li><a href="https://github.com/midnightntwrk/midnight-awesome-dapps/pull/138" target="_blank" rel="noopener"><b>Nightroom listing</b><span>midnight-awesome-dapps, PR #138</span></a></li>
+      <li><a href="https://github.com/GoodDollar/GoodProtocolUI/pull/631" target="_blank" rel="noopener"><b>GoodBridge page</b><span>GoodDollar GoodProtocolUI, PR #631</span></a></li>
+      <li><a href="https://github.com/DogStark/petChain-Frontend/pull/237" target="_blank" rel="noopener"><b>Docker and Kubernetes setup</b><span>petChain Frontend, PR #237</span></a></li>
+      <li><a href="https://github.com/ritik4ever/stellar-bounty-board/pull/36" target="_blank" rel="noopener"><b>Rate limiting for write endpoints</b><span>Stellar bounty board, PR #36</span></a></li>
+      <li><a href="https://github.com/GalactiGuild/Stellar-Guilds/pull/198" target="_blank" rel="noopener"><b>Responsive top navbar</b><span>Stellar Guilds, PR #198</span></a></li>
+      <li><a href="https://github.com/Jsmithseo/headlessSTLR/pull/3" target="_blank" rel="noopener"><b>NextAuth and Firebase sign-in</b><span>headlessSTLR, PR #3</span></a></li>
+      <li><a href="https://github.com/Pi-Defi-world/acbu-backend/pull/196" target="_blank" rel="noopener"><b>README reference fix</b><span>ACBU backend, PR #196</span></a></li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section class="contact dark" id="contact"><div class="wrap">
+  <div>
+    <h2>Your move.</h2>
+    <p class="lead-in">Tell me what you need. I reply within a day, by email or WhatsApp, whichever you prefer.</p>
     <form id="lead">
       <label>Your name<input id="f-n" name="name" autocomplete="name"></label>
-      <label>Email or WhatsApp number, so I can reply<input id="f-c" name="contact" autocomplete="email" required></label>
-      <label>What do you need?<select id="f-t" name="need"><option>A website or web app</option><option>A tool or dashboard for my organisation</option><option>Technical writing or docs</option><option>A Web3 dApp</option><option>Something else</option></select></label>
-      <label>Tell me more<textarea id="f-m" name="message" rows="3"></textarea></label>
-      <div class="btns" style="justify-content:flex-start"><button type="submit" class="btn main" id="f-e">Send message</button><button type="button" class="btn" id="f-w">Send on WhatsApp</button></div>
-      <p id="f-s" role="status" aria-live="polite" style="font-weight:700;color:var(--ink);min-height:1.6em"></p>
+      <label>Email or WhatsApp number<input id="f-c" name="contact" autocomplete="email" required></label>
+      <label class="full">What do you need?<select id="f-t" name="need"><option>A website or web app</option><option>A tool or dashboard for my organisation</option><option>Technical writing or docs</option><option>A Web3 dApp</option><option>Something else</option></select></label>
+      <label class="full">Tell me more<textarea id="f-m" name="message" rows="4"></textarea></label>
+      <div class="form-actions"><button type="submit" class="btn hl" id="f-e">Send message</button><button type="button" class="btn line" id="f-w">Send on WhatsApp instead</button></div>
+      <p id="f-s" role="status" aria-live="polite"></p>
     </form>
-    <p class="links">Or find me: <a class="ul" href="mailto:ngutorigber@gmail.com">Email</a> <a class="ul" href="https://www.linkedin.com/in/ngutor-igber-8129b042a" target="_blank" rel="noopener">LinkedIn</a> <a class="ul" href="https://github.com/Gutopro" target="_blank" rel="noopener">GitHub</a> <a class="ul" href="https://x.com/Godson_Kpp" target="_blank" rel="noopener">X</a></p>
   </div>
-  <div class="board">
-    <a class="sq" href="mailto:ngutorigber@gmail.com"><span><span class="pc">♔</span><br>Email</span></a>
-    <a class="sq" href="https://wa.me/2347032862433" target="_blank" rel="noopener"><span><span class="pc">♘</span><br>WhatsApp</span></a>
-    <a class="sq" href="https://www.linkedin.com/in/ngutor-igber-8129b042a" target="_blank" rel="noopener"><span><span class="pc">♗</span><br>LinkedIn</span></a>
-    <a class="sq" href="https://github.com/Gutopro" target="_blank" rel="noopener"><span><span class="pc">♖</span><br>GitHub</span></a>
+  <div>
+    <ul class="direct">
+      <li><a href="https://wa.me/2347032862433" target="_blank" rel="noopener"><span>WhatsApp</span><b>+234 703 286 2433</b></a></li>
+      <li><a href="mailto:ngutorigber@gmail.com"><span>Email</span><b>ngutorigber@gmail.com</b></a></li>
+      <li><a href="https://www.linkedin.com/in/ngutor-igber-8129b042a" target="_blank" rel="noopener"><span>LinkedIn</span><b>Ngutor Igber</b></a></li>
+      <li><a href="https://github.com/Gutopro" target="_blank" rel="noopener"><span>GitHub</span><b>Gutopro</b></a></li>
+      <li><a href="https://x.com/Godson_Kpp" target="_blank" rel="noopener"><span>X</span><b>@Godson_Kpp</b></a></li>
+    </ul>
+    <p class="call">Prefer to talk first? <a class="tl" href="https://wa.me/2347032862433?text=Hi%20Guto%2C%20I%27d%20like%20a%2015-minute%20call." target="_blank" rel="noopener">Book a free 15-minute call</a>.</p>
   </div>
 </div></section>
+</main>
 
-<footer><div class="wrap"><span>&copy; <span id="yr"></span> Guto (Ngutor Igber), Abuja</span><span><b>Got a project?</b> <a class="ul" href="#contact">Make your move</a> or <a class="ul" href="https://wa.me/2347032862433" target="_blank" rel="noopener">WhatsApp me</a>.</span></div></footer>
+<footer class="dark"><div class="wrap"><span>&copy; <span id="yr"></span> Guto (Ngutor Igber), Abuja</span><span>Off the board: hunting kings as GutoSensie.</span></div></footer>
 
 <script>
-document.getElementById('yr').textContent=new Date().getFullYear();
-var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,body=document.body,L=[document.getElementById('pre'),document.getElementById('w1'),document.getElementById('w2')];
-function ready(){body.classList.remove('loading')}
-var seen=false;try{seen=sessionStorage.getItem('seen')}catch(e){}
-if(reduce||seen){L.forEach(function(e){e.style.display='none'});ready()}else{
-  try{sessionStorage.setItem('seen','1')}catch(e){}
-  var clk=document.getElementById('clk');
-  function tickClock(){clk.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Africa/Lagos',hour:'2-digit',minute:'2-digit'})+' WAT'}
-  tickClock();setInterval(tickClock,30000);
-  var num=document.getElementById('num'),fill=document.getElementById('fill'),t0=performance.now(),D=600;
-  function ease(x){return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
-  function out(){L.forEach(function(e){e.classList.add('out')});setTimeout(ready,350);setTimeout(function(){L.forEach(function(e){e.remove()})},1800)}
-  (function tick(t){var p=Math.min(1,(t-t0)/D),e=ease(p);num.textContent=String(Math.round(e*100)).padStart(3,'0');fill.style.transform='scaleX('+e+')';if(p<1){requestAnimationFrame(tick)}else{setTimeout(out,80)}})(t0);
-}
+const $=id=>document.getElementById(id);
+$('yr').textContent=new Date().getFullYear();
 
-const cards=[...document.querySelectorAll('#cards .card')];
+// Header hairline once the page scrolls
+const top_=document.querySelector('.top');
+addEventListener('scroll',()=>top_.classList.toggle('scrolled',scrollY>8),{passive:true});
 
-const links=[...document.querySelectorAll('nav a')];
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});
-document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
-
+// "I need" switcher: retunes the intro, pre-fills the form and reorders the work list
+const jobs=[...document.querySelectorAll('#jobs .job')];
 const AUD={
  biz:{sub:'A fast website your customers can actually use.',lede:'I build websites and web apps for businesses: mobile-first, with WhatsApp booking, payments and an admin you can run yourself.',t:'A website or web app',first:["Enny's Glory Events",'Bible a Kid','Incredible-X Commandos']},
  org:{sub:'Tools and documents your team can actually use.',lede:'I build dashboards, member platforms and data tools, and write the guides and manuals that go with them.',t:'A tool or dashboard for my organisation',first:['Incredible-X Commandos','Bible a Kid']},
  dev:{sub:'Developer docs and dApps people can actually use.',lede:'I write guides, tutorials and reference for dev-tool and Web3 teams, and build dApps on Midnight.',t:'Technical writing or docs',first:['Midnight docs','The Providers guide','Nightroom']}
 };
-document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{
  const a=AUD[b.dataset.a];
- document.querySelectorAll('.chips button').forEach(x=>x.classList.toggle('on',x===b));
- document.getElementById('sub').textContent=a.sub;document.getElementById('lede').textContent=a.lede;
- document.getElementById('f-t').value=a.t;
- const rank=c=>{const i=a.first.indexOf(c.querySelector('h3').textContent);return i<0?99:i};
- cards.forEach(c=>c.style.order=rank(c));
+ document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ $('sub').textContent=a.sub;$('lede').textContent=a.lede;$('f-t').value=a.t;
+ jobs.forEach(j=>{const i=a.first.indexOf(j.dataset.name);j.style.order=i<0?99:i});
 });
-// Paste a free Web3Forms access key here (web3forms.com) to deliver the form straight to your inbox.
-// While it is empty, "Send message" falls back to opening the visitor's email app.
+
+// Contact form: Web3Forms, with a mailto fallback if the key is ever removed
 const FORM_KEY='8c13a031-a1f0-4a44-99db-027027d67a83';
-const $=id=>document.getElementById(id);
 function lead(){const n=$('f-n').value.trim()||'there',c=$('f-c').value.trim(),t=$('f-t').value,m=$('f-m').value.trim();
  return 'Hi Guto, I\'m '+n+'. I need: '+t+'.'+(m?'\n\n'+m:'')+(c?'\n\nReach me at: '+c:'')}
 function mailto(){location.href='mailto:ngutorigber@gmail.com?subject='+encodeURIComponent('Project enquiry: '+$('f-t').value)+'&body='+encodeURIComponent(lead())}
@@ -415,10 +399,10 @@ $('lead').onsubmit=async e=>{e.preventDefault();
  try{const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
    body:JSON.stringify({access_key:FORM_KEY,subject:'Project enquiry: '+$('f-t').value,from_name:$('f-n').value.trim()||'Website visitor',name:$('f-n').value.trim(),contact:$('f-c').value.trim(),need:$('f-t').value,message:$('f-m').value.trim()})});
   const j=await r.json();if(!j.success)throw 0;
-  $('lead').reset();st.textContent='Thanks! I\'ll reply within a day.';
- }catch(_){st.textContent='That didn\'t send. Please try WhatsApp or email below.'}
+  $('lead').reset();st.textContent='Message sent. I\'ll reply within a day.';
+ }catch(_){st.textContent='Your message didn\'t send. Use WhatsApp or email instead.'}
  btn.disabled=false};
-document.getElementById('f-w').onclick=()=>{window.open('https://wa.me/2347032862433?text='+encodeURIComponent(lead()),'_blank','noopener')};
+$('f-w').onclick=()=>{window.open('https://wa.me/2347032862433?text='+encodeURIComponent(lead()),'_blank','noopener')};
 </script>
 </body>
 </html>
