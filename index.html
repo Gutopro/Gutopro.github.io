@@ -84,12 +84,18 @@ h1 u{text-decoration:none;background:radial-gradient(ellipse at 50% 100%,var(--c
 .btn{padding:13px 26px;border-radius:99px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-weight:700;text-decoration:none;box-shadow:0 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
 .btn:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
 .btn.main{background:var(--ink);color:var(--paper);box-shadow:0 4px 0 var(--coral)}
-.sticker{position:absolute;width:clamp(60px,9vw,120px);filter:drop-shadow(0 8px 10px rgba(22,34,77,.2));animation:bob 6s ease-in-out infinite}
+.sticker{position:absolute;width:96px;display:none;filter:drop-shadow(0 8px 10px rgba(22,34,77,.2));animation:bob 6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-10px) rotate(var(--r,0deg))}}
-.s1{left:12%;top:12%;--r:-8deg;transform:rotate(-8deg)}.s2{left:36%;top:6%;width:70px;transform:rotate(10deg);animation-delay:-2s}
-.s3{right:30%;top:8%;transform:rotate(8deg);animation-delay:-3s}.s4{right:9%;top:42%;transform:rotate(-6deg);animation-delay:-1s}
-.s5{left:19%;bottom:22%;transform:rotate(6deg);animation-delay:-4s}.s6{right:18%;bottom:12%;transform:rotate(-10deg);animation-delay:-5s}
-@media(max-width:900px){.sticker{display:none}}
+/* Stickers sit only in the side gutters, outside the 1080px text column (edge at 50% - 540px) */
+.s1{left:calc(50% - 680px);top:12%;--r:-8deg;transform:rotate(-8deg)}
+.s2{left:calc(50% - 640px);top:45%;width:72px;--r:10deg;transform:rotate(10deg);animation-delay:-2s}
+.s5{left:calc(50% - 680px);bottom:14%;--r:6deg;transform:rotate(6deg);animation-delay:-4s}
+.s3{right:calc(50% - 680px);top:12%;--r:8deg;transform:rotate(8deg);animation-delay:-3s}
+.s4{right:calc(50% - 650px);top:45%;--r:-6deg;transform:rotate(-6deg);animation-delay:-1s}
+.s6{right:calc(50% - 680px);bottom:14%;--r:-10deg;transform:rotate(-10deg);animation-delay:-5s}
+/* right gutter is wide enough from 1400px; left gutter must also clear the side nav (~200px), so from 1760px */
+@media(min-width:1400px){.s3,.s4,.s6{display:block}}
+@media(min-width:1760px){.s1,.s2,.s5{display:block}}
 
 #pillars{background:var(--night);color:#e9e6f7;padding:0}
 #pillars .in{padding:110px 0}
